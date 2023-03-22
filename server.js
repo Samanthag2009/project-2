@@ -1,6 +1,5 @@
-
-const path = require('path');
 const express = require('express');
+const path = require('path');
 // Import express-session
 const session = require('express-session');
 const exphbs = require('express-handlebars');
@@ -20,6 +19,7 @@ const sess = {
 };
 
 app.use(session(sess));
+
 
 const hbs = exphbs.create({ helpers });
 
