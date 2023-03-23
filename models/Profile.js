@@ -2,6 +2,7 @@
 const {Model, DataTypes} = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
+const uuid = require('uuidv4');
 
 //input class of Profile that extends Model based on Model framework
 class User extends Model {
@@ -13,9 +14,10 @@ class User extends Model {
 User.init(
     {
       id: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
         allowNull: false,
-        primaryKey: true,
+        primaryKey: true
         
       },
 
