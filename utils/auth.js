@@ -1,5 +1,5 @@
 //authorization = has user login id
-const hasAuth = (req, res, next) => {
+const reqAuth = (req, res, next) => {
     if (req.session.user_id){
         res.redirect('/login');
     } else {
@@ -7,4 +7,4 @@ const hasAuth = (req, res, next) => {
     }
 }
 
-module.exports = hasAuth;
+module.exports = reqAuth;
