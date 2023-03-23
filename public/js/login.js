@@ -1,3 +1,7 @@
+// Moved these imports to the top w the export @the bottom - emma
+const app = express();
+app.use(passport.initialize());
+app.use(passport.session());
 
 async function handleLogin(event) {
     event.preventDefault();  
@@ -28,3 +32,6 @@ async function handleLogin(event) {
 }
   
 document.querySelector('.login-form').addEventListener('submit', handleLogin);
+
+
+module.exports = app;
