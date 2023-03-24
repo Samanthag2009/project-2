@@ -1,3 +1,6 @@
+const app = express();
+app.use(passport.initialize());
+app.use(passport.session());
 
 async function handleLogin(event) {
     event.preventDefault();  
@@ -27,4 +30,6 @@ async function handleLogin(event) {
     }
 }
   
+
+module.exports = app;
 document.querySelector('.login-form').addEventListener('submit', handleLogin);
