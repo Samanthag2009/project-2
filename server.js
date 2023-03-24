@@ -24,6 +24,10 @@ const sess = {
 
 app.use(session(sess));
 
+//express configurations for Passport npm
+app.use(passport.initialize());
+app.use(passport.session());
+
 const hbs = exphbs.create({ helpers });
 
 app.engine('handlebars', hbs.engine);
