@@ -33,7 +33,14 @@ Game.init(
             type: DataTypes.NUMBER,
             allowNull: false,
         },
+    },
+    {
+     sequelize, 
+     timestamps: false,
+     freezeTableName: true,
+     underscored: true,
+     modelName: 'game',
     }
-)
+);
 
 module.exports = Game;
