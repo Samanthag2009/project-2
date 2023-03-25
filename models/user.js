@@ -18,7 +18,6 @@ User.init(
         defaultValue: DataTypes.UUIDV4,
         allowNull: false,
         primaryKey: true
-        
       },
 
       username: {
