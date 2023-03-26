@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 const uuid = require('uuidv4');
 
-//input class of Profile that extends Model based on Model framework
+//input class of User that extends Model based on Model framework
 class User extends Model {
     checkPassword(loginPw) {
         return bcrypt.compareSync(loginPw, this.password);
