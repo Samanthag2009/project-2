@@ -1,7 +1,7 @@
 <div class="active-game-card">
   <div class="action-btns">
     {{!-- IDK WHICH BUTTONS ARE SUPPOSED TO DO WHAT - THESE ARE PROBS WRONG --}}
-    <img class="comment-btn" src="../public/imgs/yello-b.png" alt="Yellow 'B' button">
+    <img id="comment-btn" src="../public/imgs/yello-b.png" alt="Yellow 'B' button">
     <img class="delete-btn" src="../public/imgs/blue-y.png" alt="Blue 'Y' button">
   </div>
   <div class="active-card-header">
@@ -32,6 +32,15 @@
     <h3>Comments:</h3>
     <div>
       {{!-- IDK yet how we're planning on keeping track of comments --}}
+    </div>
+    <div class="newCmnt">
+      <form id="comment-form">
+        <input type="hidden" name="game-id" value="{{id}}">
+        <label for="username">Your Name: </label><br>
+        <input type="text" placeholder="Enter your username" required>
+        <label for="comment">Your Comment: </label><br>
+        <textarea type="text" placeholder="Enter up to 300 characters" name="comment-string" maxlength="300" required></textarea>
+      </form>
     </div>
     
   </div>

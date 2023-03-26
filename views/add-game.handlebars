@@ -22,7 +22,7 @@
           </select>
         {{!-- Description --}}
         <label for="game-descript">Game Description:</label><br>
-        <input type="text" id="description" name="game-descript" maxlength="300" placeholder="Optional"><br>
+        <textarea type="text" id="description" name="game-descript" maxlength="300" placeholder="Optional"></textarea>
         {{!-- Rating --}}
         <label for="game-rating">Your Rating Out of 5:</label><br>
         <input type="number" id="rating" min="0" max="5" placeholder="0 being lame, and 5 being rad"> 
@@ -46,3 +46,8 @@
 </div>
 
 <script src="../public/js/add-game.js"></script>
+
+{{!-- WE SHOULD ADD SMTHNG W THIS --}}
+{{!-- {{#if logged_in}}
+
+    {{/if}} --}}
