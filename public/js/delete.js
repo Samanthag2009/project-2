@@ -20,7 +20,5 @@ async function deleteGameById(event) {
     }
 
 }
-// May need function to re-render all games in db after game has been removed
-//so user doesn't need to refresh for the game to disapear
 
 deleteGameBtn.addEventListener('click', deleteGameById);
