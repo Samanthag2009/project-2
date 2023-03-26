@@ -7,8 +7,8 @@ async function handleLogin(event) {
     event.preventDefault();  
 
     //get value of username/password login
-    const username = document.querySelector('#login-username').value.trim();
-    const password = document.querySelector('#login-password').value.trim();
+    const username = document.querySelector('.username').value.trim();
+    const password = document.querySelector('.password').value.trim();
   
     // If both username and password have been entered, convert username/password to json string
     if (username && password) {
@@ -30,7 +30,8 @@ async function handleLogin(event) {
       }
     }
 }
-  
+
+
 document.querySelector('.login-form').addEventListener('submit', handleLogin);
 
 module.exports = app;

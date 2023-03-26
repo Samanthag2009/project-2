@@ -1,3 +1,5 @@
+let deleteGameBtn = document.querySelector('.delete-btn')
+
 // delete by specific game id
 const deleteGame = (id) =>
   fetch(`/api/games/${id}`, {
@@ -6,3 +8,5 @@ const deleteGame = (id) =>
       'Content-Type': 'application/json',
     },
 });
+
+deleteGameBtn.addEventListener('click', deleteGame);

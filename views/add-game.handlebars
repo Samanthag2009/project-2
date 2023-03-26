@@ -1,0 +1,48 @@
+<div class="add-container">
+    <h2>Add New Game:</h2>
+    <form id="new-game-form">
+        {{!-- Name --}}
+        <label for="game-name">Game Name:</label><br>
+        <input type="text" id="game-title" name="game-name"><br>
+        {{!-- Img upload --}}
+        <label for="game-cover">Game Cover Link: </label><br>
+        <input type="url" id="cover-link" placeholder="A url to an image of your choice"><br>
+        {{!-- Genre --}}
+        <label for="game-genre">Game Genre:</label><br>
+          <select name="genre" id="genre">
+            <option value="" disabled="" selected=""></option>
+            <option value="Action/Adventure">Action/Adventure</option>
+            <option value="Real-Time Strategy">Real-Time Strategy</option>
+            <option value="Role-Playing">Role-Playing</option>
+            <option value="Shooters">Shooters</option>
+            <option value="Sandbox">Sandbox</option>
+            <option value="Survival">Survival</option>
+            <option value="Horror">Horror</option>
+            <option value="Other">Other</option>
+          </select>
+        {{!-- Description --}}
+        <label for="game-descript">Game Description:</label><br>
+        <input type="text" id="description" name="game-descript" maxlength="300" placeholder="Optional"><br>
+        {{!-- Rating --}}
+        <label for="game-rating">Your Rating Out of 5:</label><br>
+        <input type="number" id="rating" min="0" max="5" placeholder="0 being lame, and 5 being rad"> 
+        {{!-- Play Status --}}
+        <label for="game-status">Play Status:</label><br>
+          <select name="genre" id="play-status">
+            <option value="" disabled="" selected=""></option>
+            <option value="Currently Playing">Currently Playing</option>
+            <option value="Completed">Completed</option>
+            <option value="Want to Play">Want to Play</option>
+          </select>
+        {{!-- Uses img as submit btn (size hard coded here, but should be set with css for dif screen sizes) --}}
+        <input type="image" value="Submit" src="../public/imgs/level-up.png" alt="Submit" width="48" height="48">
+    </form>
+
+    <div class="redirect">
+        <h4>Not a registerd player yet?</h4>
+        <img class="new-player-btn" src="../public/imgs/new-player.png" href="./new-user.handlebars">
+    </div>
+
+</div>
+
+<script src="../public/js/add-game.js"></script>

@@ -1,21 +1,23 @@
-const newGame = document.getElementById('new-game-form');
+const newGameForm = document.getElementById('new-game-form');
 
 // Handle on click when a user submits new game
-if (newGame) {
-  newGame
+if (newGameForm) {
+  newGameForm
     .addEventListener('submit', (e) => {
       e.preventDefault();
 
       // get values from input boxes
-      let title = document.querySelector('#title').value;
+      let title = document.querySelector('#game-title').value;
+      let cover = document.querySelector('#cover-link').value;
       let genre = document.querySelector('#genre').value;
       let description = document.querySelector('#description').value;
       let rating = document.querySelector('#rating').value;
       let playStatus = document.querySelector('#play-status').value; 
 
       // Create an object with the game info
-      const newFeedback = {
+      const newGameObj = {
         title,
+        cover,
         genre,
         description,
         rating,
@@ -28,7 +30,7 @@ if (newGame) {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(newGame),
+        body: JSON.stringify(newGameObj),
       })
         .then((res) => res.json())
     })
