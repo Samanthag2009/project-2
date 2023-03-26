@@ -1,0 +1,50 @@
+<div class="active-game-card">
+  <div class="action-btns">
+    {{!-- IDK WHICH BUTTONS ARE SUPPOSED TO DO WHAT - THESE ARE PROBS WRONG --}}
+    <img id="comment-btn" src="../public/imgs/yello-b.png" alt="Yellow 'B' button">
+    <img class="delete-btn" src="../public/imgs/blue-y.png" alt="Blue 'Y' button">
+  </div>
+  <div class="active-card-header">
+    {{game_name}}
+  </div>
+  <div class="active-card-body">
+    {{!-- Img uploaded to render here --}}
+    <div>
+      {{cover_img}}
+    </div>
+    <p>
+      Genre: {{genre}}
+    </p>
+    <p>
+       Player Description:
+        {{game_description}}
+    </p>
+    <p>
+        Player Rating:
+        {{rating}}/5 <img id="heart-rating" src="../public/imgs/heart.png" alt="Retro game health heart">
+    </p>
+    <p>
+      Play Status: {{play_status}}
+    </p>
+    {{!-- Should we add a user_id to the game model so we can show who posted that game? --}}
+  </div>
+  <div class="comment-container">
+    <h3>Comments:</h3>
+    <div>
+      {{!-- IDK yet how we're planning on keeping track of comments --}}
+    </div>
+    <div class="newCmnt">
+      <form id="comment-form">
+        <input type="hidden" name="game-id" value="{{id}}">
+        <label for="username">Your Name: </label><br>
+        <input type="text" placeholder="Enter your username" required>
+        <label for="comment">Your Comment: </label><br>
+        <textarea type="text" placeholder="Enter up to 300 characters" name="comment-string" maxlength="300" required></textarea>
+      </form>
+    </div>
+  </div>
+</div>
+
+{{!-- scripts for comment/delete btn functionality --}}
+<script src="../public/js/add-comment.js"></script>
+<script src="../public/js/delete.js"></script>

@@ -1,0 +1,27 @@
+<div class="all-games-container">
+    <div class="all-header">
+        <h1>All Games: </h1>
+        <h3>Check out what all the other users are playing!</h3>
+    </div>
+    {{!-- Iterate over all saved games and render each game as follows --}}
+    {{#each games as |game|}}
+        <div class="game-card">
+            <div class="card-header">
+                {{game_name}}
+                <img class="view-btn" src="../public/imgs/green-x.png" alt="Green 'X' button">
+            </div>
+            <div class="card-body">
+                {{!-- Img uploaded to render here --}}
+                <div>
+                {{cover_img}}
+                </div>
+                <p>
+                    Player Rating: {{rating}}/5 <img id="heart-rating" src="../public/imgs/heart.png" alt="Retro game health heart">
+                </p>
+            </div>
+        </div>
+    {{/each}}
+</div>
+
+<script src="../public/js/all-games.js"></script>
+<script src="../public/js/view-game.js"></script>

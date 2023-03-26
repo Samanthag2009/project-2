@@ -1,14 +1,14 @@
-const commentForm = document.getElementById('');
-const commentButton = document.getElementById('');
+const commentForm = document.getElementById('comment-form');
+const commentButton = document.getElementById('comment-btn');
 
 commentButton.addEventListener('click', function(event) {
     event.preventDefault();
 
-   const game = document.querySelector('').value;
-   const comment = document.querySelector('').value;
+   const gameId = document.querySelector('input[name="game-id"]').value;
+   const comment = document.querySelector('textarea[name="comment-string"]').value;
 
    const newComment = {
-    game: game,
+    game: gameId,
     comment: comment
    };
 
