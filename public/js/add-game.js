@@ -1,40 +1,43 @@
-const newGameForm = document.getElementById('new-game-form');
+const { v4: uuidv4 } = require('uuid');
 
-// Handle on click when a user submits new game
-if (newGameForm) {
-  newGameForm
-    .addEventListener('submit', (e) => {
-      e.preventDefault();
+// Re-wrote as async/await function
+async function newGameForm(event) {
+  event.preventDefault();
 
-      // get values from input boxes
-      let title = document.querySelector('#game-title').value;
-      let cover = document.querySelector('#cover-link').value;
-      let genre = document.querySelector('#genre').value;
-      let description = document.querySelector('#description').value;
-      let rating = document.querySelector('#rating').value;
-      let playStatus = document.querySelector('#play-status').value; 
+  // get values from input boxes
+  let title = document.querySelector('#game-title').value;
+  let cover = document.querySelector('#cover-link').value;
+  let genre = document.querySelector('#genre').value;
+  let description = document.querySelector('#description').value;
+  let rating = document.querySelector('#rating').value;
+  let playStatus = document.querySelector('#play-status').value; 
 
-      // Create an object with the game info
-      const newGameObj = {
-        title,
-        cover,
-        genre,
-        description,
-        rating,
-        playStatus
-      };
+  // Create an object with the game info
+  const newGameObj = {
+    id: uuidv4(),
+    title,
+    cover,
+    genre,
+    description,
+    rating,
+    playStatus
+  };
 
-      // Then fetch a POST request dashboard (view all games) to the server to store new game
-      fetch('api/dashboard', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(newGameObj),
-      })
-        .then((res) => res.json())
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-    });
+  const newGameInstance = await fetch('api/all-games', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(newGameObj),
+  })
+
+  // If new game is added correctly (res 200 ok), load page to view the created note by it's id
+  if (newGameInstance.ok) {
+    document.location.replace(`/view-game/${newGameObj.id}`)
+  }else {
+    alert(newGameInstance.statusText);
+  }
+
 }
+  // Call async function when form is submited
+  document.querySelector('#new-game-form').addEventListener('submit', newGameForm);
