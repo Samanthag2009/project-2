@@ -46,6 +46,14 @@ Game.init(
         // play_status: {
 
         // },
+        user_id: { // Foreign Key
+            type: DataTypes.INTEGER, 
+            allowNull: false,
+            references: {
+                model: 'user',
+                key: 'id'
+            }
+        }
     },
     {
      sequelize, 
