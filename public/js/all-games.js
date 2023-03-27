@@ -8,5 +8,5 @@ const getGames = () =>
   });
 
 // MAY NEED ADDITIONAL FUNCTIONALITY lIKE LISTEN FOR window.location.pathname === '/games'
-// Gets notes from the db and renders them to the sidebar
+// Gets games from the db and renders them 
 // const getAndRenderGames = () => getGames().then(renderAllGames);
