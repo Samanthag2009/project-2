@@ -28,9 +28,10 @@ Game.init(
         //   }
         // },  
 
-        // genre: {
-
-        // },
+        genre: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
 
         game_description: {
             type: DataTypes.STRING,
@@ -40,12 +41,13 @@ Game.init(
 
         rating: {
             type: DataTypes.NUMBER,
-            allowNull: false,
+            allowNull: true,
         },
 
-        // play_status: {
-
-        // },
+        play_status: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
     },
     {
      sequelize, 
