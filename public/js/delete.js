@@ -44,10 +44,11 @@ $("#no").click(function(){
 })
 
 //when you click the "Proceed" button, the modal disappears and the USER is deleted
-$("#yes").click(function(){
-  // delete by specific game id
+$("#yes").click(function(event){
+  event.preventDefault();
+  // delete by specific user id
   const deleteUser = await
-  fetch(`/api/games/${id}`, {
+  fetch(`/api/user/${id}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
@@ -56,7 +57,7 @@ $("#yes").click(function(){
 
   // If user is deleted correctly, return to about/login/homepage
   if (deleteUser.ok) {
-      document.location.replace('/home')
+      document.location.replace('/')
   } else {
       alert(deleteUser.statusText)
   }
