@@ -20,6 +20,18 @@ Game.init(
             allowNull: false
         },
 
+        //  @ COLIN - If we use a URL input instead of a file upload the dataTypes is a string & it should have a validation
+        // image_url: {
+        //     
+        //     validate: {
+        //         isURL: true
+        //   }
+        // },  
+
+        // genre: {
+
+        // },
+
         game_description: {
             type: DataTypes.STRING,
             allowNull: true,
@@ -30,6 +42,10 @@ Game.init(
             type: DataTypes.NUMBER,
             allowNull: false,
         },
+
+        // play_status: {
+
+        // },
     },
     {
      sequelize, 

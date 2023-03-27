@@ -23,6 +23,7 @@ async function newGameForm(event) {
     playStatus
   };
 
+  // Stringify new game instance to save it
   const newGameInstance = await fetch('api/all-games', {
     method: 'POST',
     headers: {
@@ -41,3 +42,38 @@ async function newGameForm(event) {
 }
   // Call async function when form is submited
   document.querySelector('#new-game-form').addEventListener('submit', newGameForm);
+
+// Validate all imgs user tries to upload
+function imgFileValidation() {
+    var imgFile = document.getElementById('cover-file');
+     
+    var filePath = imgFile.value;
+ 
+    // Allowing file type
+    var allowedFileTypes = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+    
+    // Handle invalid file types
+    if (!allowedFileTypes.exec(filePath)) {
+        alert('Invalid file type');
+        imgFile.value = '';
+        return false;
+    }
+    else
+    {
+     
+        // Image preview
+        if (imgFile.files && imgFile.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById(
+                    'imagePreview').innerHTML =
+                    '<img src="' + e.target.result
+                    + '"/>';
+            };
+             
+            reader.readAsDataURL(imgFile.files[0]);
+        }
+    }
+}
+
+imgFileValidation();

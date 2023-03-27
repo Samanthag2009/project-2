@@ -1,7 +1,9 @@
 <div class="all-games-container">
     <div class="all-header">
+        <img class="not-a-switch" src="../public/imgs/not-a-switch.png" alt="Handheld game console">
         <h1>All Games: </h1>
         <h3>Check out what all the other users are playing!</h3>
+        <img class="arrows" src="../public/imgs/arrows.png" alt="Game controller arrows">
     </div>
     {{!-- Iterate over all saved games and render each game as follows --}}
     {{#each games as |game|}}
@@ -22,6 +24,7 @@
         </div>
     {{/each}}
 </div>
+<img class="joy-stick" src="../public/imgs/joy-stick.png" alt="Old school joy stick">
 
 <script src="../public/js/all-games.js"></script>
 <script src="../public/js/view-game.js"></script>

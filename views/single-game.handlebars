@@ -30,9 +30,19 @@
   </div>
   <div class="comment-container">
     <h3>Comments:</h3>
-    <div>
+    <div class="comment-card">
       {{!-- IDK yet how we're planning on keeping track of comments --}}
+      {{#each this}}
+      <div>
+        <blockquote>
+            <p>{{comment_text}}</p>
+        </blockquote>
+        <h3> - {{user.username}} on {{format_date created_at}}</h3>               
+      </div>
+      {{/each}}
     </div>
+  </div>
+    {{#if logged_in}}
     <div class="newCmnt">
       <form id="comment-form">
         <input type="hidden" name="game-id" value="{{id}}">
@@ -42,9 +52,13 @@
         <textarea type="text" placeholder="Enter up to 300 characters" name="comment-string" maxlength="300" required></textarea>
       </form>
     </div>
+    {{/if}}
   </div>
 </div>
 
 {{!-- scripts for comment/delete btn functionality --}}
+{{!-- Only logged in users can add comments or delete games --}}
+{{#if logged_in}}
 <script src="../public/js/add-comment.js"></script>
 <script src="../public/js/delete.js"></script>
+{{/if}}
