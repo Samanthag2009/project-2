@@ -1,0 +1,43 @@
+<div class="user-container">
+    <h1>My Profile</h1>
+    <img class="ghosts" src="../public/imgs/red-ghost.png" alt="Red Ghost">
+    {{!-- Need to specify created_at in the routes --}}
+    <h2>You've been a registered player with us since {{format_date created_at}}</h2>
+
+    <div class="info-container">
+        <h2>Username: {{user-container}}</h2>
+        {{!-- Need to figure out how to hide password --}}
+        <h2>Password: {{password}}</h2>
+        <img class="password" src="../public/imgs/yello-b.png" alt="Yellow 'B'"> 
+        {{!-- On click, reveal passowrd --}}
+    </div>
+
+    <div class="logout">
+        <p>Logout</p>  
+        <img class="logout-btn" src="../public/imgs/logout.png" alt="Yellow 'Game Over'"> 
+    </div>
+
+    <div class="delete-player">
+        <p>Delete My Profile</p>
+        <img class="delete-btn" src="../public/imgs/terminate.png" alt="Red 'Terminate Player'"> 
+    </div>
+
+    {{!-- The Modal --}}
+    <div id="clearModal" class="modal">
+      {{!-- Modal content --}}
+      <div class="modal-content">
+        <p>Whoah whoah whoah. If you proceed, you're gonna delete your player profile, and all of your saved games. You sure you're ready for that level of commitment?</p>
+        <div class="yes-no">
+          <img id="no" class="btn" src="../public/imgs/blue-y.png"><p>Oh whoops. Never mind.</p> <img id="yes" class="btn" src="../public/imgs/green-x.png"><p>I know what I'm about, son.</p>
+        </div>
+      </div>
+    </div>
+        
+    
+</div>
+<img class="not-tetris" src="../public/imgs/tetris.png" alt="Colorful shapes">
+
+{{#if logged_in}}
+<script src="../public/js/logout.js"></script>
+<script src="../public/js/delete.js"></script>
+{{/if}}

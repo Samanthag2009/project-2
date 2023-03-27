@@ -1,0 +1,46 @@
+:root {
+    --light: #F0FCF8;
+    --bright: #ffd33b;
+    --danger: #ff2173;
+    --go: #2bdb9b;
+    --calm: #00bfc3;
+    --dark: #1d133f;
+}
+
+/* MODAL STYLING */
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(29,19,63,0.4); /* --dark w/ opacity */
+}
+  
+/* Modal Content/Box */
+.modal-content {
+    background-color: var(--light);
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid var(--dark);
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.modal-content p {
+    text-align: center;
+}
+
+.yes-no {
+    display: flex;
+    justify-content: space-around;
+}
+  
+/* The Close/Accept Buttons */
+#no #yes {
+    width: 30px;
+}
+  
