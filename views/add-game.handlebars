@@ -46,9 +46,7 @@
 
 </div>
 
+{{!-- Only logged in users can add a game --}}
+{{#if logged_in}}
 <script src="../public/js/add-game.js"></script>
-
-{{!-- WE SHOULD ADD SMTHNG W THIS --}}
-{{!-- {{#if logged_in}}
-
-    {{/if}} --}}
+{{/if}}
