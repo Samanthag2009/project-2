@@ -1,5 +1,6 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection')
+const { query } = require('express');
+const { Model, DataTypes, QueryInterface } = require('sequelize');
+const sequelize = require('../config/connection');
 
 class Comment extends Model {}
 
@@ -7,27 +8,31 @@ Comment.init(
     {
         id: {
             type: DataTypes.INTEGER,
+            allowNull: false,
+            autoIncrement: true,
             primaryKey: true
         },
         comment_text: {
-            type: DataTypes.TEXT('long'),
-            allowNull: false,
+            type: DataTypes.CHAR,// string w max length 255 char
+            allowNull: false
         },
         user_id: { // Foreign Key
-            type: DataTypes.INTEGER, 
+            type: DataTypes.INTEGER,
+            autoincrement: true, 
             allowNull: false,
-            references: {
-                model: 'user',
-                key: 'id'
-            }
+            // references: {
+            //     model: 'user',
+            //      key: 'id'
+            // }
         },
         game_id: { //Foreign Key
             type: DataTypes.INTEGER,
+            autoincriment: true,
             allowNull: false,
-            references: {
-                model: 'game',
-                key: 'id'
-            }
+            // references: {
+            //     model: 'game',
+            //     key: 'id'
+            // }
         }
     },
     {
@@ -35,8 +40,15 @@ Comment.init(
         timestamps: true,
         freezeTableName: true,
         underscored: true,
-        modelName: 'comment',
+        modelName: 'comment'
     }
-)
+    // .then(() => {
+
+    //     return QueryInterface.sequelize.query('ALTER TABLE `game_id` ADD' + 'CONSTRAINT `fk_game_id_games` FOREIGN KEY(`user_id, game_id`) REFERENCES'
+    //     + 'id(`game_id`)');
+
+    // })
+
+);
 
 module.exports = Comment;
