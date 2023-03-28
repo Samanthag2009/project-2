@@ -1,8 +1,10 @@
+const { UUIDV4 } = require('sequelize');
+const { uuid } = require('uuidv4');
 const { Game } = require('../models')
 
 const gameData = [
     {
-        id: '',
+        id: UUIDV4.generate,
         game_name: 'Halo',
         image_url: '', //or file path w need to decide how to do that
         genre: 'first-person shooter',
