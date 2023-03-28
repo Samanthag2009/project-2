@@ -7,6 +7,7 @@ Comment.init(
     {
         id: {
             type: DataTypes.INTEGER,
+            autoIncrement: true,
             primaryKey: true
         },
         comment_text: {
@@ -14,7 +15,8 @@ Comment.init(
             allowNull: false,
         },
         user_id: { // Foreign Key
-            type: DataTypes.INTEGER, 
+            type: DataTypes.INTEGER,
+            autoincrement: true, 
             allowNull: false,
             references: {
                 model: 'user',
@@ -23,6 +25,7 @@ Comment.init(
         },
         game_id: { //Foreign Key
             type: DataTypes.INTEGER,
+            autoincriment: true,
             allowNull: false,
             references: {
                 model: 'game',
