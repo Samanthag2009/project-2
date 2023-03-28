@@ -40,7 +40,7 @@ Game.init(
         },
 
         rating: {
-            type: DataTypes.NUMBER,
+            type: DataTypes.INTEGER,
             allowNull: true,
         },
 
