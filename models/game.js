@@ -28,9 +28,10 @@ Game.init(
         //   }
         // },  
 
-        // genre: {
-
-        // },
+        genre: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
 
         game_description: {
             type: DataTypes.STRING,
@@ -40,7 +41,7 @@ Game.init(
 
         rating: {
             type: DataTypes.NUMBER,
-            allowNull: false,
+            allowNull: true,
         },
 
         // play_status: {
@@ -48,12 +49,13 @@ Game.init(
         // },
         user_id: { // Foreign Key
             type: DataTypes.INTEGER, 
-            allowNull: false,
+            allowNull: true,
             references: {
                 model: 'user',
                 key: 'id'
             }
         }
+
     },
     {
      sequelize, 
