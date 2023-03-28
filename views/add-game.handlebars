@@ -36,17 +36,17 @@
             <option value="Want to Play">Want to Play</option>
           </select>
         {{!-- Uses img as submit btn (size hard coded here, but should be set with css for dif screen sizes) --}}
-        <input type="image" value="Submit" src="../public/imgs/level-up.png" alt="Submit" width="48" height="48">
+        <input type="image" value="Submit" src="/imgs/level-up.png" alt="Submit" width="48" height="48">
     </form>
 
     <div class="redirect">
         <h4>Not a registerd player yet?</h4>
-        <img class="new-player-btn" src="../public/imgs/new-player.png" href="./new-user.handlebars">
+        <img class="new-player-btn" src="/imgs/new-player.png" href="./new-user.handlebars">
     </div>
 
 </div>
 
 {{!-- Only logged in users can add a game --}}
-{{#if logged_in}}
-<script src="../public/js/add-game.js"></script>
-{{/if}}
+{{!-- {{#if logged_in}} --}}
+<script src="/js/add-game.js"></script>
+{{!-- {{/if}} --}}

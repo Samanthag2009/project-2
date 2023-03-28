@@ -6,7 +6,7 @@ class Comment extends Model {}
 
 Comment.init(
     {
-        id: {
+        comment_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             autoIncrement: true,
@@ -20,19 +20,19 @@ Comment.init(
             type: DataTypes.INTEGER,
             autoincrement: true, 
             allowNull: false,
-            // references: {
-            //     model: 'user',
-            //      key: 'id'
-            // }
+            references: {
+                model: 'user',
+                 key: 'id'
+            }
         },
         game_id: { //Foreign Key
             type: DataTypes.INTEGER,
             autoincriment: true,
             allowNull: false,
-            // references: {
-            //     model: 'game',
-            //     key: 'id'
-            // }
+            references: {
+                model: 'game',
+                key: 'id'
+            }
         }
     },
     {

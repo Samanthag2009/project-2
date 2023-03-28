@@ -8,6 +8,6 @@ const userRoutes = require('./user-routes');
 //  routes to controllers for my-games and all-games
 router.use('/user', userRoutes);
 router.use('/games', allGameRoutes);
-router.use('/saved-games', myGameRoutes);
+router.use('/my-games', myGameRoutes);
 
 module.exports = router;

@@ -2,7 +2,7 @@
 const router = require('express').Router();
 const express = require('express');
 //Route to view users stored games page
-router.get('../../HTML', async (req, res) => {
+router.get('/my-games', async (req, res) => {
 
     res.render('mygames')
 });

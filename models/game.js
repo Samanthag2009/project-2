@@ -7,12 +7,12 @@ class Game extends Model {}
 
 Game.init(
     {
-        id: {
+        game_id: {
 
             type: DataTypes.INTEGER,
             autoincrement: true,
             allowNull: false,
-            primaryKey: true
+            primaryKey: false
         },
 
         game_name: {
