@@ -15,4 +15,5 @@ User.hasMany(Comment);
 
 Game.hasMany(Comment);
 
+
 module.exports = { User, Game, Comment };

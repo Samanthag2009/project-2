@@ -10,8 +10,8 @@ router.get('/', async (req, res) => {
   });
 
 // GET Route for homepage
-// app.get('/', (request, response) =>
-//   response.sendFile(path.join(__dirname, '/public/homepage.handlebars'))
+// router.get('/', (req, res) =>
+//   res.sendFile(path.join(__dirname, '/public/homepage.handlebars'))
 // );
 
 module.exports = router;
