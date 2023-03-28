@@ -44,10 +44,18 @@ Game.init(
             allowNull: true,
         },
 
-        play_status: {
-            type: DataTypes.STRING,
+        // play_status: {
+
+        // },
+        user_id: { // Foreign Key
+            type: DataTypes.INTEGER, 
             allowNull: true,
-        },
+            references: {
+                model: 'user',
+                key: 'id'
+            }
+        }
+
     },
     {
      sequelize, 
