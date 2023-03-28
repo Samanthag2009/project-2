@@ -3,28 +3,16 @@ const Game = require('./game');
 const Comment = require('./comment');
 
 
-User.hasMany(Game, {
-    foreignKey: 'user_id'
-})
+User.hasMany(Game)
 
-Game.belongsTo(User, {
-    foreignKey: 'user_id'
-})
+Game.belongsTo(User)
 
-Comment.belongsTo(User, {
-    foreignKey: 'user_id'
-})
+Comment.belongsTo(User)
 
-Comment.belongsTo(Game, {
-    foreignKey: 'user_id'
-})
+Comment.belongsTo(Game)
 
-User.hasMany(Comment, {
-    foreignKey: 'user_id'
-})
+User.hasMany(Comment)
 
-Game.hasMany(Comment, {
-    foreignKey: 'game_id'
-})
+Game.hasMany(Comment)
 
 module.exports = { User, Game, Comment };

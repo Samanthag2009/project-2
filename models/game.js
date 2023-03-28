@@ -49,7 +49,7 @@ Game.init(
         // },
         user_id: { // Foreign Key
             type: DataTypes.INTEGER, 
-            allowNull: true,
+            allowNull: false,
             references: {
                 model: 'user',
                 key: 'id'
