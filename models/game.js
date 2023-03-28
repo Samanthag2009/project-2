@@ -9,8 +9,8 @@ Game.init(
     {
         id: {
 
-            type: DataTypes.UUID,
-            defaultValue: DataTypes.UUIDV4,
+            type: DataTypes.INTEGER,
+            autoincrement: true,
             allowNull: false,
             primaryKey: true
         },
