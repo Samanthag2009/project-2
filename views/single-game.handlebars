@@ -1,8 +1,8 @@
 <div class="active-game-card">
   <div class="action-btns">
     {{!-- IDK WHICH BUTTONS ARE SUPPOSED TO DO WHAT - THESE ARE PROBS WRONG --}}
-    <img id="comment-btn" src="../public/imgs/red-a.png" alt="Red 'A' button">
-    <img class="delete-btn" src="../public/imgs/yello-b.png" alt="Yellow 'B' button">
+    <img id="comment-btn" src="/imgs/yello-b.png" alt="Yellow 'B' button">
+    <img class="delete-btn" src="/imgs/blue-y.png" alt="Blue 'Y' button">
   </div>
   <div class="active-card-header">
     {{game_name}}
@@ -21,10 +21,13 @@
     </p>
     <p>
         Player Rating:
-        {{rating}}/5 <img id="heart-rating" src="../public/imgs/heart.png" alt="Retro game health heart">
+        {{rating}}/5 <img id="heart-rating" src="/imgs/heart.png" alt="Retro game health heart">
     </p>
     <p>
       Play Status: {{play_status}}
+    </p>
+    <p>
+      Posted By: {{user.username}}
     </p>
     {{!-- Should we add a user_id to the game model so we can show who posted that game? --}}
   </div>
@@ -59,6 +62,9 @@
 {{!-- scripts for comment/delete btn functionality --}}
 {{!-- Only logged in users can add comments or delete games --}}
 {{#if logged_in}}
-<script src="../public/js/add-comment.js"></script>
-<script src="../public/js/delete.js"></script>
+<script src="/js/add-comment.js"></script>
+<script src="/js/delete.js"></script>
 {{/if}}
+
+
+{{!-- add posted/commented user --}}

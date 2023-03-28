@@ -1,16 +1,16 @@
 <div class="all-games-container">
     <div class="all-header">
-        <img class="not-a-switch" src="../public/imgs/not-a-switch.png" alt="Handheld game console">
+        <img class="not-a-switch" src="/imgs/not-a-switch.png" alt="Handheld game console">
         <h1>All Games: </h1>
         <h3>Check out what all the other users are playing!</h3>
-        <img class="arrows" src="../public/imgs/arrows.png" alt="Game controller arrows">
+        <img class="arrows" src="/imgs/arrows.png" alt="Game controller arrows">
     </div>
     {{!-- Iterate over all saved games and render each game as follows --}}
     {{#each games as |game|}}
         <div class="game-card">
             <div class="card-header">
                 {{game_name}}
-                <img class="view-btn" src="../public/imgs/green-x.png" alt="Green 'X' button">
+                <img class="view-btn" src="/imgs/green-x.png" alt="Green 'X' button">
             </div>
             <div class="card-body">
                 {{!-- Img uploaded to render here --}}
@@ -18,13 +18,13 @@
                 {{cover_img}}
                 </div>
                 <p>
-                    Player Rating: {{rating}}/5 <img id="heart-rating" src="../public/imgs/heart.png" alt="Retro game health heart">
+                    Player Rating: {{rating}}/5 <img id="heart-rating" src="/imgs/heart.png" alt="Retro game health heart">
                 </p>
             </div>
         </div>
     {{/each}}
 </div>
-<img class="joy-stick" src="../public/imgs/joy-stick.png" alt="Old school joy stick">
+<img class="joy-stick" src="/imgs/joy-stick.png" alt="Old school joy stick">
 
-<script src="../public/js/all-games.js"></script>
-<script src="../public/js/view-game.js"></script>
+<script src="/js/all-games.js"></script>
+<script src="/js/view-game.js"></script>

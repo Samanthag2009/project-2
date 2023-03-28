@@ -2,7 +2,7 @@
 const {Model, DataTypes} = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
-const uuid = require('uuidv4');
+// const uuid = require('uuidv4');
 
 //input class of User that extends Model based on Model framework
 class User extends Model {
