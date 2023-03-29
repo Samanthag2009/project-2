@@ -8,7 +8,7 @@ class Game extends Model {}
 
 Game.init(
     {
-        game_id: {
+        id: {
 
             type: DataTypes.INTEGER,
             autoincrement: true,
