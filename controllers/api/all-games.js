@@ -6,6 +6,7 @@ const { Comment, Game, User } = require('../../models')
 const reqAuth = require('../../utils/auth');
 // Return all games stored
 router.get('/games', (req, res) =>{
+    res.render('all')
     Game.findAll({
         attributes: [
             'game_name',
