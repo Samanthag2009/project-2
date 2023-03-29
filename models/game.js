@@ -2,6 +2,7 @@ const {Model, DataTypes} = require('sequelize');
 const sequelize = require('../config/connection');
 
 const uuid = require('uuidv4');
+const { max } = require('./comment');
 
 class Game extends Model {}
 
@@ -11,6 +12,7 @@ Game.init(
 
             type: DataTypes.INTEGER,
             autoincrement: true,
+            defaultValue: 1000,
             allowNull: false,
             primaryKey: false
         },
@@ -34,14 +36,16 @@ Game.init(
         },
 
         game_description: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT('long'),
             allowNull: true,
 
         },
 
         rating: {
             type: DataTypes.INTEGER,
-            allowNull: true,
+            defaultValue: 1,
+            max: 5,
+            allowNull: true
         },
 
         // play_status: {
