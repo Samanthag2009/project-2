@@ -4,9 +4,15 @@ const express = require('express');
 const { Comment, Game, User } = require('../../models')
 //require user authentication to see this page
 const reqAuth = require('../../utils/auth');
+
+router.get('/games', async (req, res) => {
+  
+    res.render('all', {layout : 'main'});
+  });
+
+
 // Return all games stored
 router.get('/games', (req, res) =>{
-    res.render('all')
     Game.findAll({
         attributes: [
             'game_name',
@@ -21,7 +27,7 @@ router.get('/games', (req, res) =>{
             }
         ]
     })
-    .then(dbRender => res.json(dbRender))
+    .then(dbData => res.json(dbData))
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
@@ -38,7 +44,9 @@ router.get('/:id', (req,res) => {
     })
 });
 
-
-
 // export modules
 module.exports = router;
+
+
+
+

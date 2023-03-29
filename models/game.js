@@ -22,14 +22,13 @@ Game.init(
             allowNull: false
         },
 
-        //  @ COLIN - If we use a URL input instead of a file upload the dataTypes is a string & it should have a validation
-        // image_url: {
-        //     
-        //     validate: {
-        //         isURL: true
-        //   }
-        // },  
-
+        image_url: {
+            type: DataTypes.STRING,
+            allowNull: true,
+            validate: {
+                isURL: true
+          } 
+        },  
         genre: {
             type: DataTypes.STRING,
             allowNull: true,
@@ -48,9 +47,10 @@ Game.init(
             allowNull: true
         },
 
-        // play_status: {
-
-        // },
+        play_status: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         user_id: { // Foreign Key
             type: DataTypes.INTEGER, 
             allowNull: false,
@@ -63,7 +63,7 @@ Game.init(
     },
     {
      sequelize, 
-     timestamps: false,
+     timestamps: true,
      freezeTableName: true,
      underscored: true,
      modelName: 'game',
