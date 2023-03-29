@@ -22,7 +22,7 @@ const gameData = [
         play_status: 'Finished'
     },
     {
-        id: '3',
+        id: '1003',
         game_name: 'Silent Hill Downpour',
         image_url: '', //or file path w need to decide how to do that
         genre: 'Horror',
@@ -31,7 +31,7 @@ const gameData = [
         play_status: 'Finished'
     },
     {
-        id: '1003',
+        id: '1004',
         game_name: 'Minecraft',
         image_url: '', //or file path w need to decide how to do that
         genre: 'Open World',
@@ -40,7 +40,7 @@ const gameData = [
         play_status: 'Ongoing'
     },
     {
-        id: '1004',
+        id: '1005',
         game_name: 'Barbie Horse Adventures',
         image_url: '', //or file path w need to decide how to do that
         genre: 'RPG',
@@ -49,7 +49,7 @@ const gameData = [
         play_status: 'Wishlist'
     },
     {
-        id: '1005',
+        id: '1006',
         game_name: 'Ship of Fools',
         image_url: '', //or file path w need to decide how to do that
         genre: 'Roguelite',
@@ -58,7 +58,7 @@ const gameData = [
         play_status: 'Ongoing'
     },
     {
-        id: '1006',
+        id: '1007',
         game_name: 'Kingdom Hearts',
         image_url: '', //or file path w need to decide how to do that
         genre: 'RPG',
@@ -67,7 +67,7 @@ const gameData = [
         play_status: 'Finished'
     },
     {
-        id: '1007',
+        id: '1008',
         game_name: 'Splatoon',
         image_url: '', //or file path w need to decide how to do that
         genre: 'Third-person shooter',
@@ -76,7 +76,7 @@ const gameData = [
         play_status: 'Wishlist'
     },
     {
-        id: '1008',
+        id: '1009',
         game_name: 'Umineko When They Cry',
         image_url: '', //or file path w need to decide how to do that
         genre: 'Visual Novel',
@@ -85,7 +85,7 @@ const gameData = [
         play_status: 'Ongoing'
     },
     {
-        id: '1009',
+        id: '1010',
         game_name: 'Pokemon Y',
         image_url: '', //or file path w need to decide how to do that
         genre: 'RPG',
@@ -94,7 +94,7 @@ const gameData = [
         play_status: 'Finished'
     },
     {
-        id: '1010',
+        id: '1011',
         game_name: "Dante's Inferno",
         image_url: '', //or file path w need to decide how to do that
         genre: 'RPG',

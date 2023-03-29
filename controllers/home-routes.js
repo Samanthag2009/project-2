@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const express = require('express');
 
-const app = express();
 
 router.get('/', async (req, res) => {
     //render the homepage template as the response
