@@ -1,14 +1,15 @@
 // Moved these imports to the top w the export @the bottom - emma
-const app = express();
-app.use(passport.initialize());
-app.use(passport.session());
+// const express = require('express');
+// const app = express();
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 async function handleLogin(event) {
     event.preventDefault();  
 
     //get value of username/password login
-    const username = document.querySelector('.username').value.trim();
-    const password = document.querySelector('.password').value.trim();
+    const username = document.querySelector('.username-login').value.trim();
+    const password = document.querySelector('.password-login').value.trim();
   
     // If both username and password have been entered, convert username/password to json string
     if (username && password) {
@@ -24,7 +25,7 @@ async function handleLogin(event) {
       // if login authenticated, load dashboard, else alert login status failed
       if (login.ok) {
         console.log('success');
-        document.location.replace('/dashboard');
+        document.location.replace('/user-profile');
       } else {
         alert(login.statusText);
       }
@@ -34,6 +35,6 @@ async function handleLogin(event) {
 
 document.querySelector('.login-form').addEventListener('submit', handleLogin);
 
-module.exports = app;
+// module.exports = app;
 
 

@@ -13,7 +13,7 @@ Comment.init(
             primaryKey: true
         },
         comment_text: {
-            type: DataTypes.CHAR,// string w max length 255 char
+            type: DataTypes.TEXT('long'),// string w max length 255 char
             allowNull: false
         },
         user_id: { // Foreign Key
