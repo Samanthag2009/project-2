@@ -8,7 +8,7 @@ class Game extends Model {}
 
 Game.init(
     {
-        game_id: {
+        id: {
 
             type: DataTypes.INTEGER,
             autoincrement: true,
@@ -51,14 +51,14 @@ Game.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        user_id: { // Foreign Key
-            type: DataTypes.INTEGER, 
-            allowNull: false,
-            references: {
-                model: 'user',
-                key: 'id'
-            }
-        }
+        // user_id: { // Foreign Key
+        //     type: DataTypes.INTEGER, 
+        //     allowNull: false,
+        //     references: {
+        //         model: 'user',
+        //         key: 'id'
+        //     }
+        // }
 
     },
     {
