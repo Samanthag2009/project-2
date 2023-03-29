@@ -7,6 +7,26 @@
     --dark: #1d133f;
 }
 
+
+.view-btn, 
+#heart-rating,
+.arrows {
+    width: 30px;
+} 
+/* @ASHLEY, YOU CAN DELETE THESE, THEY'RE JUST HERE TO 
+MAKE THE ICONS SMALLER TO MAKE EDITING EASIER  */
+.not-a-switch,
+.joy-stick,
+#logo-icon {
+    width: 10rem;
+}
+
+
+
+
+
+
+
 /* MODAL STYLING */
 /* The Modal (background) */
 .modal {

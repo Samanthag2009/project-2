@@ -11,3 +11,4 @@ router.use('/games', allGameRoutes);
 router.use('/my-games', myGameRoutes);
 
 module.exports = router;
+
