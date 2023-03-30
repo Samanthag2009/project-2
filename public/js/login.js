@@ -8,7 +8,7 @@ async function handleLogin(event) {
   
     // If both username and password have been entered, convert username/password to json string
     if (username && password) {
-      const  login = await fetch('/login', { // might also be api/users/login but idk
+      const  login = await fetch('/api/user/login', { // might also be api/users/login but idk
         method: 'post',
         body: JSON.stringify({
           username,
@@ -16,7 +16,7 @@ async function handleLogin(event) {
         }),
         headers: { 'Content-Type': 'application/json' }
       });
-  
+      console.log(username, password, login)
       // if login authenticated, load dashboard, else alert login status failed
       if (login.ok) {
         console.log('success');
