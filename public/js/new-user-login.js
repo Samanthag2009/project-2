@@ -7,7 +7,7 @@ async function handleSignUpForm(event) {
   
     // if both username/password are entered save key/values and redirect to dashboard
     if (username && password) {
-      const newUser = await fetch('/api/new-users', {
+      const newUser = await fetch('/api/new-users', { // might also be api/users/login but idk
         method: 'post',
         body: JSON.stringify({
           username,

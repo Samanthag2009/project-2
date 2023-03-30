@@ -6,7 +6,7 @@ async function newGameForm(event) {
 
   // get values from input boxes
   let title = document.querySelector('#game-title').value;
-  let cover = document.querySelector('#cover-link').value;
+  let image_url = document.querySelector('#cover-link').value;
   let genre = document.querySelector('#genre').value;
   let description = document.querySelector('#description').value;
   let rating = document.querySelector('#rating').value;
@@ -14,9 +14,8 @@ async function newGameForm(event) {
 
   // Create an object with the game info
   const newGameObj = {
-    id: uuidv4(),
     title,
-    cover,
+    image_url,
     genre,
     description,
     rating,

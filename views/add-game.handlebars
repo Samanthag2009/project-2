@@ -4,10 +4,9 @@
         {{!-- Name --}}
         <label for="game-name">Game Name:</label><br>
         <input type="text" id="game-title" name="game-name"><br>
-        {{!-- Img upload: SHOULD WE USE A LINK OR FILE UPLOAD? --}}
-        <label for="game-cover">Game Cover Link: </label><br>
-        <input type="url" id="cover-link" placeholder="A url to an image of your choice"><br>
-        <input type="file" id="cover-file" onchange="return imgFileValidation()" />
+        <label for="game-cover">Game Cover Link: If you'd like to upload an image of your game, enter a URL from your prefered 'Image Hosting Site' such as <a target="_blank" href="https://www.google.com/photos/about/">Google Photos</a>, <a target="_blank" href="https://imgbox.com/">imgbox</a>, or <a target="_blank" href="https://imgbb.com/"></a>img.bb</label><br>
+        <input type="url" id="cover-link" placeholder="URLs only "><br>
+    
         {{!-- Genre --}}
         <label for="game-genre">Game Genre:</label><br>
           <select name="genre" id="genre">
