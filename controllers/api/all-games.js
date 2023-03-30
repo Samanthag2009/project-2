@@ -115,18 +115,6 @@ router.get('/:id', hasAuth, (req, res) => {
   }); 
 })
 
-// New comments render by id 
-router.post('/:id', hasAuth, (req, res) => {
-  Comment.create({
-    //include the comment text, user id of poster, and game id
-    comment_text: req.body.comment_text,
-    user_id: req.body.user_id,
-    game_id: req.body.game_id
-  })
-  .then(newComment => res.json(newComment))
-  .catch(err => console.log(err))
-})
-
 
 // export modules
 module.exports = router;

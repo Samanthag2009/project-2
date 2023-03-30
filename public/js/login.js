@@ -20,12 +20,23 @@ async function handleLogin(event) {
       // if login authenticated, load dashboard, else alert login status failed
       if (login.ok) {
         console.log('success');
-        document.location.replace('/user-profile');
+        document.location.replace('/games');
       } else {
         alert(login.statusText);
       }
     }
 }
+
+// async function handleSignUpForm(event) {
+//   event.preventDefault();
+
+//   const username = document.getElementById('sign-up-username').value.trim();
+//   const password = document.getElementById('sign-up-password').value.trim();
+
+//   if (username && password) {
+//     const signUp = await
+//   }
+// }
 
 document.querySelector('.login-form').addEventListener('submit', handleLogin);
 
