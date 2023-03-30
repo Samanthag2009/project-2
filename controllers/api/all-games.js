@@ -3,6 +3,7 @@ const router = require("express").Router();
 const express = require("express");
 const { Comment, Game, User } = require("../../models");
 //require user authentication to see this page
+
 const reqAuth = require("../../utils/auth");
 
 router.get("/games", async (req, res) => {

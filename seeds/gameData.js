@@ -11,7 +11,7 @@ const gameData = [
         game_description: 'Halo is a science fiction action game set in the twenty-sixth century, with the player assuming the role of the Master Chief, a cybernetically enhanced supersoldier.',
         rating: 5,
         play_status: 'Finished',
-        // user_id: 1
+        user_id: 1
     },
     {
         id: 1002,
@@ -21,7 +21,7 @@ const gameData = [
         game_description: 'Monster Hunter Rise is an action RPG that will transport players to the colorful Kamura Village, an all-new serene mountain locale that attracts visitors with its unique culture and innovative hunting technologies.',
         rating: 5,
         play_status: 'Finished',
-        // user_id: 2
+        user_id: 2
     },
     {
         id: 1003,
@@ -31,7 +31,7 @@ const gameData = [
         game_description: 'Silent Hill: Downpour is a survival horror game played from the over-the-shoulder, third-person perspective, in which the player controls Murphy Pendleton, an escaped convict, as he navigates the titular supernatural town.',
         rating: 1,
         play_status: 'Finished',
-        // user_id: 3
+        user_id: 3
     },
     {
         id: 1004,
@@ -41,7 +41,7 @@ const gameData = [
         game_description: 'In Minecraft, players explore a blocky, procedurally generated, three-dimensional world with virtually infinite terrain and may discover and extract raw materials, craft tools and items, and build structures, earthworks, and machines.',
         rating: null,
         play_status: 'Ongoing',
-        // user_id: 4
+        user_id: 4
     },
     {
         id: 1005,
@@ -51,7 +51,7 @@ const gameData = [
         game_description: "Barbie solves the mystery of the missing horse of Barbie's friend Teresa. To do so, the player, as Barbie, has to explore the countryside, consisting of varied terrain ranging from forest to desert, while solving logic puzzles.",
         rating: null,
         play_status: 'Wishlist',
-        // user_id: 5
+        user_id: 5
     },
     {
         id: 1006,
@@ -61,7 +61,7 @@ const gameData = [
         game_description: 'Set sail, man the cannons and battle sea monsters through the tempestuous seas of the Archipelago. Are you fool enough to stop the Aquapocalypse?',
         rating: 4,
         play_status: 'Ongoing',
-        // user_id: 6
+        user_id: 6
     },
     {
         id: 1007,
@@ -71,7 +71,7 @@ const gameData = [
         game_description: 'Set in a vast array of Disney and Pixar worlds, KINGDOM HEARTS follows the journey of Sora, a young boy and unknowing heir to a spectacular power.',
         rating: 5,
         play_status: 'Finished',
-        // user_id: 7
+        user_id: 7
     },
     {
         id: 1008,
@@ -81,7 +81,7 @@ const gameData = [
         game_description: 'Ink up the. Splatlands. Enter a sun-scorched desert inhabited by battle-hardened Inklings and Octolings. Ink, dive, swim, and splat your way to the top!',
         rating: null,
         play_status: 'Wishlist',
-        // user_id: 8
+        user_id: 8
     },
     {
         id: 1009,
@@ -91,7 +91,7 @@ const gameData = [
         game_description: '"When the Seagulls Cry" is a Japanese dōjin soft visual novel series produced by 07th Expansion. Its first episode debuted at Comiket 72 for Windows in August 2007. The story focuses on a group of eighteen people on a secluded island for a period of two days, and the mysterious murders that befall them.',
         rating: 4,
         play_status: 'Ongoing',
-        // user_id: 9
+        user_id: 9
     },
     {
         id: 1010,
@@ -101,7 +101,7 @@ const gameData = [
         game_description: 'This time, the games take place in the Kalos region—based on France—with the objective being to thwart the schemes of the nefarious criminal organization Team Flare, all while attempting to challenge the Pokémon League Champion.',
         rating: 5,
         play_status: 'Finished',
-        // user_id: 10
+        user_id: 10
     },
     {
         id: 1011,
@@ -111,7 +111,7 @@ const gameData = [
         game_description: 'A Journey of the 9 circles of Hell.',
         rating: 3,
         play_status: 'Finished',
-        // user_id: 11
+        user_id: 11
     }
 ];
 

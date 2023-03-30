@@ -16,12 +16,23 @@
 /* @ASHLEY, YOU CAN DELETE THESE, THEY'RE JUST HERE TO 
 MAKE THE ICONS SMALLER TO MAKE EDITING EASIER  */
 .not-a-switch,
-.joy-stick,
-#logo-icon {
+.joy-stick {
     width: 10rem;
 }
 
 
+header {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+#logo-icon {
+    align-self: flex-start;
+    width: 7rem;
+}
 
 
 
