@@ -5,12 +5,12 @@ const { Comment, Game, User } = require("../../models");
 //require user authentication to see this page
 const hasAuth = require('../../utils/auth');
 
-router.get("/games", async (req, res) => {
+router.get("/games", hasAuth, async (req, res) => {
   res.render("all", { layout: "main" });
 });
 
 // Return all games stored
-router.get("/games", (req, res) => {
+router.get("/games", hasAuth, (req, res) => {
   Game.findAll({
     attributes: ["game_name", "cover_img", "rating"],
     order: [["created_at", "DESC"]],
@@ -29,7 +29,7 @@ router.get("/games", (req, res) => {
 });
 
 // find one specific game
-router.get("/:id", (req, res) => {
+router.get("/:id", hasAuth, (req, res) => {
   console.log("working");
   Game.findOne({
     where: {
@@ -93,7 +93,7 @@ router.post('/add-game', hasAuth, (req, res) => {
 
 
 // Comments for game by id
-router.get('/:id', (req, res) => {
+router.get('/:id', hasAuth, (req, res) => {
   Comment.findAll({
     where: {
       game_id: req.params.game_id
@@ -113,18 +113,6 @@ router.get('/:id', (req, res) => {
     console.log(err);
     res.status(err).json(err);
   }); 
-})
-
-// New comments render by id 
-router.post('/:id', hasAuth, (req, res) => {
-  Comment.create({
-    //include the comment text, user id of poster, and game id
-    comment_text: req.body.comment_text,
-    user_id: req.body.user_id,
-    game_id: req.body.game_id
-  })
-  .then(newComment => res.json(newComment))
-  .catch(err => console.log(err))
 })
 
 

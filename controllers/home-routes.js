@@ -28,6 +28,8 @@ router.get('/', async (req, res) => {
     res.render('homepage');
 });
 
+router.get('')
+
 
 // ALL.HANDLEBARS
 // Return all games stored (must be logged in to access)
@@ -113,55 +115,6 @@ router.get('/:id', hasAuth, (req, res) =>{
 
 });
 
-// get game by id
-router.get('/:id', hasAuth, (req, res) =>{
-  //Find specific game data for requested game by id
-  console.log(req.params.id)
-  Game.findOne({
-      where: {
-        id: req.params.id
-      },
-      attributes: [
-          'game_name',
-          'image_url',
-          'genre',
-          'game_description',
-          'rating',
-          'play_status'
-      ],
-      include: [
-          {
-              model: User,
-              attributes: ['username']
-          },
-          {
-              model: Comment,
-              attributes: [
-                'comment_id',
-                'comment_text',
-                'user_id',
-                'game_id',
-                'created_at'
-              ],
-              include: {
-                model: User,
-                attributes: ['username']
-              }
-          }
-      ]
-  })
-  .then(dbData => {
-    // Then populate the single-game template with what was found ^
-    const game = dbData.get({ plain: true});
-    console.log(game)
-    res.render('single-game', game) // an object 'game' is unecessary and it won't render, just pass it in
-  })
-  .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-
-});
 
 
 

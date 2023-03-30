@@ -1,6 +1,8 @@
 const router = require('express').Router();
 
-const { User } = require('../../models');
+const { User, Game, Comment } = require('../../models');
+
+const hasAuth = require('../../utils/auth')
 
 router.post('/', async (req, res) => {
   User.create({
@@ -25,7 +27,7 @@ router.post('/login', async (req, res) => {
     if (!userData) {
       res
         .status(400)
-        .json({ message: 'Incorrect username or password, please try again' });
+        .json({ message: 'Login unsuccessful, incorrect username or password.' });
       return;
     }
 
@@ -35,7 +37,7 @@ router.post('/login', async (req, res) => {
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
+        .json({ message: 'Login unsuccessful, incorrect username or password.' });
       return;
     }
     //creating session variables based on the user
@@ -43,12 +45,40 @@ router.post('/login', async (req, res) => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
       
-      res.json({ user: userData, message: 'You are now logged in!' });
+      res.json({ user: userData, message: 'Login successful!' });
     });
 
   } catch (err) {
-    res.status(400).json(err);
+    res.status(err).json(err);
   }
+});
+
+
+// get game by id get by user id
+router.get('/:id', hasAuth, (req, res) =>{
+  //Find specific game data for requested game by id
+  console.log(req.params.id)
+  User.findOne({
+      where: {
+        id: req.params.id
+      },
+      attributes: [
+          'username',
+          'password',
+          'created_at'
+      ]
+  })
+  .then(dbData => {
+    // Then populate the single-game template with what was found ^
+    const user = dbData.get({ plain: true});
+    console.log(user)
+    res.render('user-profile', user) 
+  })
+  .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+
 });
 
 //end the session upon user logout
@@ -61,5 +91,7 @@ router.post('/logout', (req, res) => {
     res.status(404).end();
   }
 });
+
+// Get user profile data
 
 module.exports = router;

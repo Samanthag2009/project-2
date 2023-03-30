@@ -10,7 +10,11 @@
         <div class="game-card">
             <div class="card-header">
                 {{game_name}}
-                <img class="view-btn" src="/imgs/green-x.png" alt="Green 'X' button">
+                {{!-- Hardcoded to return /1001 just bc we don't have time to figure out how to  --}}
+                <a href="/1001"> 
+                    <img class="view-btn"  src="/imgs/green-x.png" alt="Green 'X' button"> 
+                </a>
+            
             </div>
             <div class="card-body">
                 {{!-- Img uploaded to render here --}}
@@ -23,8 +27,6 @@
             </div>
         </div> 
     {{/each}}
-</div> 
 <img class="joy-stick" src="/imgs/joy-stick.png" alt="Old school joy stick">
 
 <script src="/js/all-games.js"></script>
-<script src="/js/view-game.js"></script>

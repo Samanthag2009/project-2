@@ -1,11 +1,17 @@
-// const allGames = document.getElementsByClassName('view-btn');
-// //Event listener for click on view-btn
-// allGames
-//     .addEventListener('click', (event) => {
-//         //get request to all page
-//         get()
-//     })
+
+async function handleSingleView(event) {
+    event.preventDefault();  
+
+    //get value of game id
+    const gameId = document.querySelector('#game-id').value.trim();
+    console.log(gameId)
+    // If both username and password have been entered, convert username/password to json string
+    if (gameId) {
+        document.location.replace(`/${gameId}`);
+      } else {
+        alert('Unable to load game view');
+      }
+}
 
 
-// NEEDS to listen for click event on all-games page on class='view-btn' 
-//to redirect to page to view a single note
+document.querySelector('.view-btn').addEventListener('click', handleSingleView);
