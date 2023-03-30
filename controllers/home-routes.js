@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const express = require('express');
-const { Game, User, Comment } = require('../models')
+const { Game, User, Comment } = require('../models');
+
+const hasAuth = require('../utils/auth')
 
 //render the homepage 
 router.get('/', async (req, res) => {
@@ -21,8 +23,8 @@ router.get('/new-player', (req, res) => {
 });
 
 
-// Return all games stored
-router.get('/games', (req, res) =>{
+// Return all games stored (must be logged in to access)
+router.get('/games', hasAuth, (req, res) =>{
   //Find what's needed to populate the handlebars
   Game.findAll({
       attributes: [
@@ -53,12 +55,13 @@ router.get('/games', (req, res) =>{
 });
 
 // THIS CURRENTLY RESPONDS W '{}'
-// Render specific game by game_id
-router.get('/:game_id', (req, res) =>{
+// Render specific game by game_id (must be logged in to access)
+router.get('/:id', hasAuth, (req, res) =>{
   //Find specific game data for requested game by id
+  console.log(req.params.id)
   Game.findOne({
       where: {
-        game_id: req.params.game_id
+        id: req.params.id
       },
       attributes: [
           'game_name',
@@ -73,28 +76,27 @@ router.get('/:game_id', (req, res) =>{
               model: User,
               attributes: ['username']
           },
-          // {
-          //     model: Comment,
-          //     attributes: [
-          //       'comment_id',
-          //       'comment_text',
-          //       'user_id',
-          //       'game_id',
-          //       'created_at'
-          //     ],
-          //     include: {
-          //       model: User,
-          //       attributes: ['username']
-          //     }
-          // }
+          {
+              model: Comment,
+              attributes: [
+                'comment_id',
+                'comment_text',
+                'user_id',
+                'game_id',
+                'created_at'
+              ],
+              include: {
+                model: User,
+                attributes: ['username']
+              }
+          }
       ]
   })
   .then(dbData => {
     // Then populate the single-game template with what was found ^
     const game = dbData.get({ plain: true});
-    res.render('single-game', {
-      game
-    })
+    console.log(game)
+    res.render('single-game', game) // an object 'game' is unecessary and it won't render, just pass it in
   })
   .catch(err => {
       console.log(err);

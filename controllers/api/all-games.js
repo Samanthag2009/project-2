@@ -8,7 +8,7 @@ const reqAuth = require('../../utils/auth');
 router.get('/games', async (req, res) => {
   
     res.render('all', {layout : 'main'});
-  });
+});
 
 
 // Return all games stored

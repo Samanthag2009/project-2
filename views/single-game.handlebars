@@ -35,12 +35,12 @@
     <h3>Comments:</h3>
     <div class="comment-card">
       {{!-- IDK yet how we're planning on keeping track of comments --}}
-      {{#each this}}
+      {{#each comments as |comment| }}
       <div>
         <blockquote>
-            <p>{{comment_text}}</p>
+            <p>{{comment.comment_text}}</p>
         </blockquote>
-        <h3> - {{user.username}} on {{format_date created_at}}</h3>               
+        <h3> - {{user.username}} on {{format_date comment.created_at}}</h3>               
       </div>
       {{/each}}
     </div>

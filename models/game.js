@@ -14,7 +14,7 @@ Game.init(
             autoincrement: true,
             defaultValue: 1000,
             allowNull: false,
-            primaryKey: false
+            primaryKey: true
         },
 
         game_name: {
@@ -51,14 +51,14 @@ Game.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        // user_id: { // Foreign Key
-        //     type: DataTypes.INTEGER, 
-        //     allowNull: false,
-        //     references: {
-        //         model: 'user',
-        //         key: 'id'
-        //     }
-        // }
+        user_id: { // Foreign Key
+            type: DataTypes.INTEGER, 
+            allowNull: false,
+            references: {
+                model: 'user',
+                key: 'id'
+            }
+        }
 
     },
     {
