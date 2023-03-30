@@ -14,7 +14,7 @@ Game.init(
             autoincrement: true,
             defaultValue: 1000,
             allowNull: false,
-            primaryKey: false
+            primaryKey: true
         },
 
         game_name: {
@@ -71,3 +71,6 @@ Game.init(
 );
 
 module.exports = Game;
+
+
+// test
