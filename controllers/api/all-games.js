@@ -3,8 +3,7 @@ const router = require("express").Router();
 const express = require("express");
 const { Comment, Game, User } = require("../../models");
 //require user authentication to see this page
-
-const hasAuth = require("../../utils/auth");
+const hasAuth = require('../../utils/auth');
 
 router.get("/games", async (req, res) => {
   res.render("all", { layout: "main" });
@@ -25,7 +24,7 @@ router.get("/games", (req, res) => {
     .then((dbData) => res.json(dbData))
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(err).json(err);
     });
 });
 
@@ -68,11 +67,11 @@ router.get("/:id", (req, res) => {
     .then((dbData) => res.json(dbData))
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(err).json(err);
     });
 });
 
-// ADD-GAME.HANDLEBARS
+// ADD-GAME to db
 router.post('/add-game', hasAuth, (req, res) => {
   // each game added will have the following:
   Game.create({
@@ -87,12 +86,46 @@ router.post('/add-game', hasAuth, (req, res) => {
   .then(dbData => res.json(dbData)) // data will be rendered into the handlebars template
   .catch(err => {
     console.log(err);
-    res.status(500).json(err);
+    res.status(err).json(err);
   }); 
   
-})
-  
+});
 
+
+// Comments for game by id
+router.get('/:id', (req, res) => {
+  Comment.findAll({
+    where: {
+      game_id: req.params.game_id
+    },
+    attributes: [
+      "comment_text",
+      "game_id",
+      "user_id"
+    ],
+    include: {
+      model: User,
+      attributes: ["username"],
+    },
+  })
+  .then(dbData => res.json(dbData))
+  .catch(err => {
+    console.log(err);
+    res.status(err).json(err);
+  }); 
+})
+
+// New comments render by id 
+router.post('/:id', hasAuth, (req, res) => {
+  Comment.create({
+    //include the comment text, user id of poster, and game id
+    comment_text: req.body.comment_text,
+    user_id: req.body.user_id,
+    game_id: req.body.game_id
+  })
+  .then(newComment => res.json(newComment))
+  .catch(err => console.log(err))
+})
 
 
 // export modules

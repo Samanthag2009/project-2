@@ -31,7 +31,7 @@ router.get('/', async (req, res) => {
 
 // ALL.HANDLEBARS
 // Return all games stored (must be logged in to access)
-router.get('/games', hasAuth, (req, res) =>{
+router.get('/games', (req, res) =>{
   //Find what's needed to populate the handlebars
   Game.findAll({
       attributes: [
@@ -113,7 +113,7 @@ router.get('/:id', hasAuth, (req, res) =>{
 
 });
 
-// USER-PROFILE.HANDLEBARS
+// get game by id
 router.get('/:id', hasAuth, (req, res) =>{
   //Find specific game data for requested game by id
   console.log(req.params.id)
