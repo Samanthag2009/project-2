@@ -122,9 +122,9 @@ a#games:hover, a#home:hover {
     font-size: 23px;
 }
 
-#start-press, #new-player {
+#start-press, #new-player, #submit {
     width: 15rem;
-    margin-top: 4rem;
+    margin-top: 3.5rem;
 }
 
 .center-main {
@@ -162,6 +162,22 @@ a#games:hover, a#home:hover {
 }
 
 
+.all-header {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.arrows {
+    width: 3rem;
+    margin-left: 10px;
+}
+
+#title {
+    display: flex;
+    align-items: center;
+}
 
 .all-games-container { 
     display: grid;
@@ -190,6 +206,29 @@ a#games:hover, a#home:hover {
 #heart-rating {
     margin-left: 10px;
 }
+
+.login-container, .redirect, .login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-container {
+    font-size: 25px;
+}
+
+.login-form {
+    margin-top: 3rem;
+}
+
+#submit {
+    height: 6rem;
+}
+
+.redirect {
+    margin-top: 40px;
+}
+
 
 /* size fetched movie img to the results column width */
 img.game-cover {
