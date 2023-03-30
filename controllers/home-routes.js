@@ -20,7 +20,7 @@ router.get('/new-player', (req, res) => {
   res.render('new-user');
 });
 
-
+// ALL.HANDLEBARS
 // Return all games stored
 router.get('/games', (req, res) =>{
   //Find what's needed to populate the handlebars
@@ -52,13 +52,13 @@ router.get('/games', (req, res) =>{
 
 });
 
-// THIS CURRENTLY RESPONDS W '{}'
 // Render specific game by game_id
-router.get('/:game_id', (req, res) =>{
+// SINGLE-GAME.HANDLEBAR
+router.get('/:id', (req, res) =>{
   //Find specific game data for requested game by id
   Game.findOne({
       where: {
-        game_id: req.params.game_id
+        id: req.params.id
       },
       attributes: [
           'game_name',
@@ -73,20 +73,20 @@ router.get('/:game_id', (req, res) =>{
               model: User,
               attributes: ['username']
           },
-          // {
-          //     model: Comment,
-          //     attributes: [
-          //       'comment_id',
-          //       'comment_text',
-          //       'user_id',
-          //       'game_id',
-          //       'created_at'
-          //     ],
-          //     include: {
-          //       model: User,
-          //       attributes: ['username']
-          //     }
-          // }
+          {
+              model: Comment,
+              attributes: [
+                'comment_id',
+                'comment_text',
+                'user_id',
+                'game_id',
+                'created_at'
+              ],
+              include: {
+                model: User,
+                attributes: ['username']
+              }
+          }
       ]
   })
   .then(dbData => {
@@ -102,6 +102,14 @@ router.get('/:game_id', (req, res) =>{
     });
 
 });
+
+// ADD-GAME.HANDLEBARS
+
+// NEW-USER.HANDLEBARS
+
+// USER-PROFILE.HANDLEBARS
+
+
 
 
 module.exports = router;
