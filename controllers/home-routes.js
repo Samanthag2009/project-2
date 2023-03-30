@@ -23,6 +23,7 @@ router.get('/new-player', (req, res) => {
 });
 
 
+// ALL.HANDLEBARS
 // Return all games stored (must be logged in to access)
 router.get('/games', hasAuth, (req, res) =>{
   //Find what's needed to populate the handlebars
@@ -54,8 +55,9 @@ router.get('/games', hasAuth, (req, res) =>{
 
 });
 
-// THIS CURRENTLY RESPONDS W '{}'
-// Render specific game by game_id (must be logged in to access)
+
+// Render specific game by game_id
+// SINGLE-GAME.HANDLEBAR (Must be logged in to access)
 router.get('/:id', hasAuth, (req, res) =>{
   //Find specific game data for requested game by id
   console.log(req.params.id)
@@ -104,6 +106,14 @@ router.get('/:id', hasAuth, (req, res) =>{
     });
 
 });
+
+// ADD-GAME.HANDLEBARS
+
+// NEW-USER.HANDLEBARS
+
+// USER-PROFILE.HANDLEBARS
+
+
 
 
 module.exports = router;

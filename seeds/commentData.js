@@ -62,9 +62,9 @@ const commentData = [
         game_id: 1010,
      },
     {
-        id: 11,
+        id: 10,
         comment_text: "This game has the best soundtrack!",
-        user_id: 11,
+        user_id: 10,
         game_id: 1011,
     }
 ]
