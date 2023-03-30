@@ -111,7 +111,7 @@ const gameData = [
         game_description: 'A Journey of the 9 circles of Hell.',
         rating: 3,
         play_status: 'Finished',
-        user_id: 11
+        user_id: 10
     }
 ];
 

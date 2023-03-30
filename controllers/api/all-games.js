@@ -4,7 +4,7 @@ const express = require("express");
 const { Comment, Game, User } = require("../../models");
 //require user authentication to see this page
 
-const reqAuth = require("../../utils/auth");
+const hasAuth = require("../../utils/auth");
 
 router.get("/games", async (req, res) => {
   res.render("all", { layout: "main" });
@@ -28,6 +28,7 @@ router.get("/games", (req, res) => {
       res.status(500).json(err);
     });
 });
+
 // find one specific game
 router.get("/:id", (req, res) => {
   console.log("working");
@@ -70,6 +71,29 @@ router.get("/:id", (req, res) => {
       res.status(500).json(err);
     });
 });
+
+// ADD-GAME.HANDLEBARS
+router.post('/add-game', hasAuth, (req, res) => {
+  // each game added will have the following:
+  Game.create({
+    game_name: req.body.title,
+    image_url: req.body.image_url,
+    genre: req.body.genre,
+    game_description: req.body.game_description,
+    rating: req.body.rating,
+    play_status: req.body.play_status,
+    user_id: req.body.user_id
+  })
+  .then(dbData => res.json(dbData)) // data will be rendered into the handlebars template
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  }); 
+  
+})
+  
+
+
 
 // export modules
 module.exports = router;

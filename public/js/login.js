@@ -1,8 +1,3 @@
-// Moved these imports to the top w the export @the bottom - emma
-// const express = require('express');
-// const app = express();
-// app.use(passport.initialize());
-// app.use(passport.session());
 
 async function handleLogin(event) {
     event.preventDefault();  
@@ -13,7 +8,7 @@ async function handleLogin(event) {
   
     // If both username and password have been entered, convert username/password to json string
     if (username && password) {
-      const  login = await fetch('/api/users/login', {
+      const  login = await fetch('/login', { // might also be api/users/login but idk
         method: 'post',
         body: JSON.stringify({
           username,
@@ -32,9 +27,8 @@ async function handleLogin(event) {
     }
 }
 
-
 document.querySelector('.login-form').addEventListener('submit', handleLogin);
 
-// module.exports = app;
+
 
 
