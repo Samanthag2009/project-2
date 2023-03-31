@@ -69,6 +69,50 @@ router.get("/:id", (req, res) => {
 });
 
 
+// find one specific game
+router.get("/:id", hasAuth, (req, res) => {
+  console.log("working");
+  Game.findOne({
+    where: {
+      id: req.params.id,
+    },
+    attributes: [
+      "game_name",
+      "image_url",
+      "genre",
+      "game_description",
+      "rating",
+      "play_status",
+    ],
+    include: [
+      {
+        model: User,
+        attributes: ["username"],
+      },
+      {
+        model: Comment,
+        attributes: [
+          "comment_id",
+          "comment_text",
+          "user_id",
+          "game_id",
+          "created_at",
+        ],
+        include: {
+          model: User,
+          attributes: ["username"],
+        },
+      },
+    ],
+  })
+    .then((dbData) => res.json(dbData))
+    .catch((err) => {
+      console.log(err);
+      res.status(err).json(err);
+    });
+});
+
+
 // // ADD-GAME to db
 // router.post('/add-game', hasAuth, (req, res) => {
 //   // each game added will have the following:
