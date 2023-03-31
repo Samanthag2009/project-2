@@ -45,22 +45,20 @@
           <blockquote>
               <p>{{comment.comment_text}}</p>
           </blockquote>
-          <h3> - DannyRojaaaas on {{format_date comment.created_at}}</h3>               
+          <h3> Posted by: {{comment.comment_username}} on {{format_date comment.created_at}}</h3>               
         </div>
         {{/each}}
       </div>
     </div>
       <div class="newCmnt">
         <form id="comment-form">
-          <input type="hidden" name="game-id" value="{{id}}">
-          <label for="username">Your Name: </label><br>
-          <input class="user" type="text" placeholder="Enter your username" required>
+          <input type="hidden" name="game-id" value="{{game.id}}">
+          <label for="username">Your Username: </label><br>
+          <input name="user" type="text" placeholder="Enter your username" required>
           <label class="comnt"for="comment">Your Comment: </label><br>
           <textarea type="text" placeholder="Enter up to 300 characters" name="comment-string" maxlength="300" required></textarea>
-          <a href="/games">
-              <img class="comment-submit" src="/imgs/green-x.png" alt="Green 'X' button">
-          </a>
-          
+          {{!-- Uses img as submit btn --}}
+          <input id="new-comment-btn" type="image" value="Submit" src="/imgs/level-up.png" alt="Submit">
         </form>
       </div>
     </div>
@@ -68,10 +66,10 @@
  
   {{!-- scripts for comment/delete btn functionality --}}
   {{!-- Only logged in users can add comments or delete games --}}
-  {{#if logged_in}}
+  {{!-- {{#if logged_in}} --}}
   <script src="/js/add-comment.js"></script>
-  <script src="/js/delete.js"></script>
-  {{/if}}
+  {{!-- <script src="/js/delete.js"></script> --}}
+  {{!-- {{/if}} --}}
 
 
   {{!-- add posted/commented user --}}

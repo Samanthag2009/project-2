@@ -50,6 +50,11 @@ const userdata = [
     id: 10,
     username: 'bo-katan-kryze',
     password: 'password123'
+  },
+  {
+    id: 11,
+    username: 'RoyKent',
+    password: 'password456'
   }
 ];
 
