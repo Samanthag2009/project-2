@@ -6,8 +6,8 @@ const hasAuth = require('../../utils/auth')
 
 // COMMENTED OUT FUNCTIONALITY THAT WILL BE IMPLEMENTED IN FUTURE DEVELOPMENT
 
-// create new user
-router.post('/', async (req, res) => {
+// create new user (they'll be direct to games page on submit)
+router.post('/games', async (req, res) => {
   User.create({
     username: req.body.username,
     password: req.body.password
@@ -56,8 +56,6 @@ router.post('/login', async (req, res) => {
     res.status(err).json(err);
   }
 });
-
-
 
 
 
