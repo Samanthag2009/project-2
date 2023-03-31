@@ -1,72 +1,37 @@
 const commentForm = document.getElementById('comment-form');
-const commentButton = document.getElementById('comment-btn');
-const comment = document.getElementById("msg");
+const commentButton = document.getElementById('new-comment-btn');
 
-// commentButton.addEventListener('click', function(event) {
-//     event.preventDefault();
+  async function newCommentForm (event) {
+    event.preventDefault();
 
-//    const gameId = document.querySelector('input[name="game-id"]').value;
-//    const comment = document.querySelector('textarea[name="comment-string"]').value;
+    //game id is /# at very end of url
+   const game_id = window.location.toString().split('/')[
+    window.location.toString().split('/').length - 1
+   ];
+   const comment_username = document.querySelector('input[name="user"]').value.trim();
+   const comment_text = document.querySelector('textarea[name="comment-string"]').value.trim();
+   
+   console.log(comment_username, comment_text)
 
-//    const newComment = {
-//     game: gameId,
-//     comment: comment
-//    };
+   const newComment = await fetch('/api/post/:id', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        game_id,
+        comment_username,
+        comment_text
+      }),
+    })  
 
-
-//    fetch('api/game-comments', {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify(newComment),
-//   })
-//     .then((res) => res.json())
-// })
-// .catch((error) => {
-//   console.error('Error:', error);
-// });
-
-function saveComment() {
-  // Save related form data as an object
-  const commentText = {
-    comment: comment.value.trim()
-  };
-  // Use .setItem() to store object in storage and JSON.stringify to convert it as a string
-  localStorage.setItem("commentText", JSON.stringify(commentText));
+    // If post is status 200, reload page to show new comment
+    if (newComment.ok) {
+      document.location.reload();
+      console.log(newComment)
+    } else {
+      alert(newComment.statusText)
+    }
 }
 
-function renderComment() {
-  // Use JSON.parse() to convert text to JavaScript object
-  const newComment = JSON.parse(localStorage.getItem("commentText"));
-  // Check if data is returned, if not exit out of the function
-  if (newComment !== null) {
-  document.getElementById("saved-comment").innerHTML = commentText.comment;
-  } else {
-    return;
-  }
-}
-
-saveButton.addEventListener("submit", function(event) {
-  event.preventDefault();
-  saveComment();
-  renderComment();
-  });
-  
-  // The init() function fires when the page is loaded 
-  function init() {
-    // When the init function is executed, the code inside render comment function will also execute
-    renderComment();
-  }
-  init();
-
-//RENDER IN COMMENT CONTAINER
-
-
-
-
-
-
-
-
-
+commentButton.addEventListener('click', newCommentForm) 

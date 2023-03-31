@@ -16,6 +16,10 @@ Comment.init(
             type: DataTypes.TEXT('long'),// string w max length 255 char
             allowNull: false
         },
+        comment_username: {
+            type: DataTypes.STRING,// string w max length 255 char
+            allowNull: false
+        },
         user_id: { // Foreign Key
             type: DataTypes.INTEGER,
             // autoincrement: true, 
