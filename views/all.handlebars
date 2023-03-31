@@ -35,11 +35,15 @@
                     </div>
                     
                     <p class="rating">
-                       Player Rating: {{rating}}/5  <img id="heart-rating" src="/imgs/heart.png" alt="Retro game health heart"> 
+                       Player Rating: {{rating}}/5 <img id="heart-rating" src="/imgs/heart.png" alt="Retro game health heart"> 
+                    </p>
+                    <p class="like-button">
+                        Like Me?
+                        <button class="like-heart" >♡</button><div id="get-likes">{{likes}}</div>
                     </p>                
             </div> 
         {{/each}}
     </div>
-
 <script src="/js/view-game.js"></script>
 <script src="/js/all-games.js"></script>
+

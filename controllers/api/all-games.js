@@ -3,12 +3,12 @@ const router = require("express").Router();
 const express = require("express");
 const { Comment, Game, User } = require("../../models");
 //require user authentication to see this page
-const reqAuth = require("../../utils/auth");
+const hasAuth = require("../../utils/auth");
 
 // Return all games stored in db (includes the name, cover img, & rating)
 router.get("/games", hasAuth, (req, res) => {
   Game.findAll({ // retrieve desired attributes
-    attributes: ["game_name", "cover_img", "rating"],
+    attributes: ["game_name", "cover_img", "rating", "likes"],
     order: [["created_at", "DESC"]],
     include: [
       {
@@ -38,6 +38,7 @@ router.get("/:id", (req, res) => {
       "game_description",
       "rating",
       "play_status",
+      "likes"
     ],
     include: [
       {
@@ -82,6 +83,7 @@ router.get("/:id", hasAuth, (req, res) => {
       "game_description",
       "rating",
       "play_status",
+      "likes"
     ],
     include: [
       {
