@@ -1,3 +1,4 @@
+![Logo](./public/imgs/controller.png "Game On.")
 # Game Connoisuer
 
 Created by nerds like you, Game Connoisuer is an app designed to function as your personal game data library. Add games you've played, are playing, or would like to play and add your own comments and rating to them. Browse games that others are playing and connect with others around the world.
@@ -6,35 +7,43 @@ Created by nerds like you, Game Connoisuer is an app designed to function as you
 
 Game Connoisuer is an app made to act as a game library with the following features:
 
-* Login/Logout: an authentication-based sign in process to secure your password and allow you access to your profile. When you're done, simply log out. 
+👾 Login/Logout: an authentication-based sign in process to secure your password and allow you access to your profile. When you're done, simply log out. 
 (SS)
 
-* Profile: Your profile is your home base where you can access "My Games" and see your list of games you'd like to play in the future, games you're currently playing, or games you've played before. All your games have the ability to be commented on and given a review rating from 1-5.
+👾 All Games: the All Games page is a page to show you what everyone else is talking about; see games that other users are uploading and maybe even find your new favorite!
 (SS)
 
-* All Games: the All Games page is a page to show you what everyone else is talking about; see games that other users are uploading and maybe even find your new favorite!
+👾 Comment and Rating System: This is where you can make comments and share your opinion! 
 (SS)
 
 
-## Getting Started
+## Link to Deployed App
 
-(heroku link go here)
+👾 (heroku link go here)
 
 ### Dependencies
 
-* express
-* console.table
-* mysql2
-* axios npm package
+* Express.js
+* CSS
+* HTML
+* Handlebars
+* Node.js
+* JavaScript
+* Sequelize
+* Express Session
+* mysql
+* Cookies
+* Nodemon
 
 ## Authors
 
-Samantha Gosselin - Backend development, config, schema, controllers, seeds, and readme
-Emma Boushka - Handlebars, javascript, routes and api
-Joshua Boren - RESTful api, controllers, .env, route configuration 
+Emma Boushka - Handlebars, seeds, routes, api, frontend and back end styling and functionality, authentication, CSS and styling
+
+Joshua Boren - RESTful api, controllers, .env, route configuration, authentication, 
 Christian Killelea - Front end views and design
-Colin Nicosia - Backend development, models, seed data, config, and image rendering functionality
-Ashley Martinez - front end CSS and design
+Colin Nicosia - Backend development, models, seed data, config, and image rendering functionality, presentation and readme
+Ashley Martinez - front end CSS and visual design.
+Samantha Gosselin - Backend development, config, schema, controllers, seeds, readme, authentication, 
 ## Version History
 
 * 0.1
@@ -45,5 +54,8 @@ Ashley Martinez - front end CSS and design
 
 Inspiration, code snippets, etc.
 * [awesome-readme](https://github.com/matiassingers/awesome-readme)
-* [axios npm package](https://www.npmjs.com/package/axios)
-* []
+* [nodemon-npm] (https://www.npmjs.com/package/nodemon)
+* [canva] (https://www.canva.com/)
+* Quality time in office hours! Thanks, Instructors! ♡
+
+![Fin.](./public/imgs/game-over.png "Game Over.")
