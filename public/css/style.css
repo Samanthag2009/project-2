@@ -7,6 +7,15 @@
     --dark: #1d133f;
 }
 
+html {
+    cursor: url("../imgs/cursor.png"), auto !important;
+}
+
+a:hover, a:focus, a::after {
+    cursor: url("../imgs/cursor.png"), auto !important;
+}
+
+
 
 body {
    font-family: 'Montserrat', sans-serif;
@@ -77,7 +86,7 @@ a#games:hover, a#home:hover {
     position: absolute;
     -webkit-animation: linear infinite;
     -webkit-animation-name: run;
-    -webkit-animation-duration: 5s;
+    -webkit-animation-duration: 8s;
   }
   @-webkit-keyframes run {
     0% {
@@ -98,6 +107,17 @@ a#games:hover, a#home:hover {
     transform: rotate(30deg);
     width: 4rem;
 }
+
+.mouse {
+    animation: tilt-shaking 0.6s infinite;
+  }
+  @keyframes tilt-shaking {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(8deg); }
+    50% { transform: rotate(0eg); }
+    75% { transform: rotate(-8deg); }
+    100% { transform: rotate(0deg); }
+  }
 
 .ghost2 {
     top: 30%;
@@ -122,11 +142,15 @@ a#games:hover, a#home:hover {
     font-size: 23px;
 }
 
-#start-press, #new-player, #submit {
+#new-player, #submit {
     width: 15rem;
     margin-top: 3.5rem;
 }
 
+#start-press {
+    width: 15rem;
+    margin-top: 2rem;
+}
 .center-main {
     display: flex;
     flex-direction: column;
@@ -134,7 +158,8 @@ a#games:hover, a#home:hover {
 }
 
 #ready-play {
-    font-size: 18px;
+    font-size: 30px;
+    font-family: 'VT323', monospace;
     font-weight: 600;
     margin-top: 5rem;
     display: flex;
@@ -145,6 +170,18 @@ a#games:hover, a#home:hover {
     height: 3rem;
     margin-left: 10px;
     margin-right: 10px;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    transform-origin: bottom;
+    animation-name: bounce-3;
+        animation-timing-function: ease;
+}
+
+@keyframes bounce-3 {
+    0%   { transform: translateY(0); }
+    30%  { transform: translateY(-100px); }
+    50%  { transform: translateY(0); }
+    100% { transform: translateY(0); }
 }
 
 #s-u {
@@ -159,8 +196,15 @@ a#games:hover, a#home:hover {
     width: 7rem;
     top: 120%;
     left: 82%;
+    animation: tilt-sh 0.4s infinite;
 }
-
+@keyframes tilt-sh {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(3deg); }
+    50% { transform: rotate(0eg); }
+    75% { transform: rotate(-3deg); }
+    100% { transform: rotate(0deg); }
+  }
 
 .all-header {
     margin-top: 10px;
