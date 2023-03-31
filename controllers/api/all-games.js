@@ -12,7 +12,7 @@ router.get("/games", async (req, res) => {
 // Return all games stored
 router.get("/games", (req, res) => {
   Game.findAll({
-    attributes: ["game_name", "cover_img", "rating"],
+    attributes: ["game_name", "cover_img", "rating", "likes"],
     order: [["created_at", "DESC"]],
     include: [
       {
@@ -41,6 +41,7 @@ router.get("/:id", (req, res) => {
       "game_description",
       "rating",
       "play_status",
+      "likes"
     ],
     include: [
       {

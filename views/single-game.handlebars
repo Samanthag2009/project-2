@@ -42,8 +42,6 @@
             <p>{{comment.comment_text}}</p>
         </blockquote>
         <h3> - {{user.username}} on {{format_date comment.created_at}}</h3>               
-        <blockquote>Comment: <span id="saved-comment"></span>
-        <h3> - Danny on {{format_date comment.created_at}}</h3></blockquote>
       </div>
       {{/each}}
     </div>
@@ -53,13 +51,8 @@
         <input type="hidden" name="game-id" value="{{id}}">
         <label for="username">Your Name: </label><br>
         <input type="text" placeholder="Enter your username" required>
-       <ul>
-        <li>
         <label for="comment">Your Comment: </label><br>
-        <textarea id="msg" type="text" placeholder="Enter up to 300 characters" name="comment-string" maxlength="300" required></textarea>
-        <button id="save">SAY THAT TO MY FACE</button>
-        </li>
-        </ul>
+        <textarea type="text" placeholder="Enter up to 300 characters" name="comment-string" maxlength="300" required></textarea>
       </form>
     </div>
   </div>
@@ -68,9 +61,9 @@
 {{!-- scripts for comment/delete btn functionality --}}
 {{!-- Only logged in users can add comments or delete games --}}
 {{#if logged_in}}
-<script src="/public/js/add-comment.js"></script>
-<script src="js/delete.js"></script>
+<script src="/js/add-comment.js"></script>
+<script src="/js/delete.js"></script>
 {{/if}}
 
 
-{{!-- add posted/commented user --}}
+  {{!-- add posted/commented user --}}
