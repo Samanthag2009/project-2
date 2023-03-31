@@ -113,6 +113,27 @@ router.get("/:id", hasAuth, (req, res) => {
     });
 });
 
+//Increment Likes in the db
+router.put('/:likes', (req, res) => {
+  Game.update(
+    {
+      //function to bring in the incrimented count
+      likes: req.body.likes
+    },
+    {
+      where: {
+        likes: req.params.likes,
+      },
+    }
+  )
+    .then((updatedGame) => {
+      //sends updated count as a json response
+      res.json(updatedGame);
+    })
+      .catch((error) => res.json(error));
+
+})
+
 
 // // ADD-GAME to db
 // router.post('/add-game', hasAuth, (req, res) => {
