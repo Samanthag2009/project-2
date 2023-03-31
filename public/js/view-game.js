@@ -1,17 +1,15 @@
+function gameLookup(event) {
+    event.preventDefault();
 
-// async function handleSingleView(event) {
-//     event.preventDefault();  
+    //Get value of entered game ID
+    const gameId = document.querySelector('input[name="gameId"]').value.trim()
 
-//     //get value of game id
-//     const gameId = document.querySelector('#game-id').value.trim();
-//     console.log(gameId)
-//     // If both username and password have been entered, convert username/password to json string
-//     if (gameId) {
-//         document.location.replace(`/${gameId}`);
-//       } else {
-//         alert('Unable to load game view');
-//       }
-// }
+    // If user tries to enter a game name, alert, load w game ID
+    if (!isNaN(gameId)) {
+        document.location.replace(`/${gameId}`)
+    } else {
+        alert('Please enter a valid game ID!')
+    }
+}
 
-
-// document.querySelector('.view-btn').addEventListener('click', handleSingleView);
+document.querySelector('.look-up-form').addEventListener('submit', gameLookup)
