@@ -3,12 +3,12 @@ const router = require("express").Router();
 const express = require("express");
 const { Comment, Game, User } = require("../../models");
 //require user authentication to see this page
-const reqAuth = require("../../utils/auth");
+const hasAuth = require("../../utils/auth");
 
 // Return all games stored in db (includes the name, cover img, & rating)
 router.get("/games", hasAuth, (req, res) => {
   Game.findAll({ // retrieve desired attributes
-    attributes: ["game_name", "cover_img", "rating"],
+    attributes: ["game_name", "cover_img", "rating", "likes"],
     order: [["created_at", "DESC"]],
     include: [
       {
@@ -65,6 +65,51 @@ router.get("/:id", (req, res) => {
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
+    });
+});
+
+
+// find one specific game
+router.get("/:id", hasAuth, (req, res) => {
+  console.log("working");
+  Game.findOne({
+    where: {
+      id: req.params.id,
+    },
+    attributes: [
+      "game_name",
+      "image_url",
+      "genre",
+      "game_description",
+      "rating",
+      "play_status",
+      "likes"
+    ],
+    include: [
+      {
+        model: User,
+        attributes: ["username"],
+      },
+      {
+        model: Comment,
+        attributes: [
+          "comment_id",
+          "comment_text",
+          "user_id",
+          "game_id",
+          "created_at",
+        ],
+        include: {
+          model: User,
+          attributes: ["username"],
+        },
+      },
+    ],
+  })
+    .then((dbData) => res.json(dbData))
+    .catch((err) => {
+      console.log(err);
+      res.status(err).json(err);
     });
 });
 

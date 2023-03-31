@@ -50,9 +50,11 @@ router.get('/games', hasAuth, (req, res) => {
   //Find what's needed to populate the handlebars
   Game.findAll({
       attributes: [
+          'id',
           'game_name',
           'image_url',
-          'rating'
+          'rating',
+          'likes'
       ],
       order: [['created_at', 'DESC']],
       include: [
@@ -92,7 +94,8 @@ router.get('/:id', hasAuth, (req, res) =>{
           'genre',
           'game_description',
           'rating',
-          'play_status'
+          'play_status',
+          'likes'
       ],
       include: [
           {
@@ -116,6 +119,12 @@ router.get('/:id', hasAuth, (req, res) =>{
       ]
   })
   .then(dbData => {
+
+    //if game is not found, respond with error
+    if (!dbData) {
+      res.status(404).json({ message: 'No post found with this id, go back and try a different one!' });
+    }
+
     // Then populate the single-game template with what was found ^
     const game = dbData.get({ plain: true});
     console.log(game)
@@ -127,6 +136,8 @@ router.get('/:id', hasAuth, (req, res) =>{
     });
 
 });
+
+
 
 
 

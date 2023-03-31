@@ -11,8 +11,7 @@ const getGames = () =>
 
   //like button
 const whiteHeart = '\u{2661}';
-const blackHeart = document.getElementById('get-likes').innerHTML;
-// '\u{2665}';
+const blackHeart = document.getElementById('get-likes').innerHTML + ' likes ' +'\u{2665}';
 const button = document.querySelector('button');
 button.addEventListener('click', toggle);
 

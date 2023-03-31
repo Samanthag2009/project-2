@@ -28,12 +28,7 @@ body {
 .arrows {
     width: 30px;
 } 
-/* @ASHLEY, YOU CAN DELETE THESE, THEY'RE JUST HERE TO 
-MAKE THE ICONS SMALLER TO MAKE EDITING EASIER  */
-.not-a-switch,
-.joy-stick {
-    width: 10rem;
-}
+
 
 header {
     display: flex;
@@ -206,7 +201,20 @@ a#games:hover, a#home:hover {
     100% { transform: rotate(0deg); }
   }
 
-.all-header {
+.login-container {
+    font-size: 25px;
+}
+
+.login-form {
+    margin-top: 3rem;
+}
+
+#submit {
+    height: 6rem;
+}
+
+
+.all-header, .look-up-form {
     margin-top: 10px;
     display: flex;
     flex-direction: column;
@@ -223,12 +231,15 @@ a#games:hover, a#home:hover {
     align-items: center;
 }
 
+
+
 .all-games-container { 
     display: grid;
     grid-template-columns: repeat(1, 300px);
     row-gap: 1.5%;
     justify-content: center;
     margin-top: 5%;
+    font-family: 'VT323', monospace;   
 }
 
 .game-card {
@@ -251,28 +262,26 @@ a#games:hover, a#home:hover {
     margin-left: 10px;
 }
 
-.login-container, .redirect, .login-form, #active-container, .newCmnt, #comment-form  {
+.login-container, 
+.redirect, 
+.login-form, 
+#active-container, 
+.newCmnt, 
+#comment-form, 
+.game-title  {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.login-container {
-    font-size: 25px;
-}
-
-.login-form {
-    margin-top: 3rem;
-}
-
-#submit {
-    height: 6rem;
+.look-input {
+    background-color: var(--light);
+    color: var(--dark);
 }
 
 .redirect {
     margin-top: 40px;
 }
-
 
 /* size fetched movie img to the results column width */
 img.game-cover {
@@ -285,23 +294,22 @@ img.game-cover {
 /* text on result cards */
 .game-card p {
     text-align: center;
+    font-size: 25px;
     background-color: var(--pale);
     margin-left: 10px;
     margin-right: 10px;
+}
+
+p.id {
+    margin: 10px 0 10px 0;
 }
 
 .game-card h3 {
     font-family: 'VT323', monospace;
     font-size: 25px;
     margin-top: 5px;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
 }
-
-
-.joy-stick {
-    display: none;
-}
-
 
 /* Single view card styling */
 .active-game-card  {
@@ -344,7 +352,7 @@ img.game-cover {
     margin: 0;
 }
 
-#comment-btn, .delete-btn {
+#comment-btn, .delete-btn, #green-x  {
     width: 3.5rem;
     margin: 8px 8px 0 0;
 }
@@ -370,11 +378,11 @@ textarea {
     border-radius: 10px;
 }
 
-
-.user {
-    width: 150%;
+.user, .look-input {
+    width: 25%;
+    height: 20px;
     border: 2px solid var(--calm);
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 
@@ -452,11 +460,14 @@ textarea {
 
 /* Like button styling - Sam*/
 
-.like-heart {
-    left: 3px;
-    width: 46px;
+.like-heart { 
+width: 71px;
   height: 29px;
-  background: white;
+  background: rgb(198, 59, 94, 1);
   border-radius: 9px;
 
+}
+
+#get-likes {
+    display: none;
 }
