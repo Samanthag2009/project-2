@@ -1,76 +1,78 @@
-<div class="active-game-card">
-  <div class="action-btns">
-    {{!-- IDK WHICH BUTTONS ARE SUPPOSED TO DO WHAT - THESE ARE PROBS WRONG --}}
-    <img id="comment-btn" src="/imgs/yello-b.png" alt="Yellow 'B' button">
-    <img class="delete-btn" src="/imgs/blue-y.png" alt="Blue 'Y' button">
-  </div>
-  <div class="active-card-header">
-    {{game_name}}
-  </div>
-  <div class="active-card-body">
-    {{!-- Img uploaded to render here --}}
-    <div>
-     <img id="game-cover" src="{{image_url}}" alt="{{game_name}} Cover Img"> 
-    </div>
-    
-    <p>
-      Genre: {{genre}}
-    </p>
-    <p>
-       Player Description:
-        {{game_description}}
-    </p>
-    <p>
-        Player Rating:
-        {{rating}}/5 <img id="heart-rating" src="/imgs/heart.png" alt="Retro game health heart">
-    </p>
-    <p>
-      Play Status: {{play_status}}
-    </p>
-    <p>
-      Posted By: {{user.username}}
-    </p>
-    {{!-- Should we add a user_id to the game model so we can show who posted that game? --}}
-  </div>
-  <div class="comment-container">
-    <h3>Comments:</h3>
-    <div class="comment-card">
-      {{!-- IDK yet how we're planning on keeping track of comments --}}
-      {{#each comments as |comment| }}
+<div id="active-container">
+  <div class="active-game-card">
+   <div class="active-card-header">
+      {{!-- IDK WHICH BUTTONS ARE SUPPOSED TO DO WHAT - THESE ARE PROBS WRONG --}}
+      <img id="comment-btn" src="/imgs/yello-b.png" alt="Yellow 'B' button">
       <div>
-        <blockquote>
-            <p>{{comment.comment_text}}</p>
-        </blockquote>
-        <h3> - {{user.username}} on {{format_date comment.created_at}}</h3>               
-        <blockquote>Comment: <span id="saved-comment"></span>
-        <h3> - Danny on {{format_date comment.created_at}}</h3></blockquote>
+        <h2 class="title">
+          {{game_name}}
+        </h2>
       </div>
-      {{/each}}
+      <img class="delete-btn" src="/imgs/blue-y.png" alt="Blue 'Y' button">
+    </div>
+    <div class="active-card-body">
+      {{!-- Img uploaded to render here --}}
+      <div>
+       <img id="game-cover" src="{{image_url}}" alt="{{game_name}} Cover Img"> 
+      </div>
+
+      <p>
+        Genre: {{genre}}
+      </p>
+      <p class="description">
+         Player Description:
+          {{game_description}}
+      </p>
+      <p>
+          Player Rating:
+          {{rating}}/5 <img id="heart-rating" src="/imgs/heart.png" alt="Retro game health heart">
+      </p>
+      <p>
+        Play Status: {{play_status}}
+      </p>
+      <p>
+        Posted By: {{user.username}}
+      </p>
+      {{!-- Should we add a user_id to the game model so we can show who posted that game? --}}
+   </div>
+</div>  
+    <div class="comment-container">
+      <h3>Comments:</h3>
+      <div class="comment-card">
+        {{!-- IDK yet how we're planning on keeping track of comments --}}
+        {{#each comments as |comment| }}
+        <div>
+          <blockquote>
+              <p>{{comment.comment_text}}</p>
+          </blockquote>
+          <h3> - DannyRojaaaas on {{format_date comment.created_at}}</h3>               
+        </div>
+        {{/each}}
+      </div>
     </div>
   </div>
-    <div class="newCmnt">
-      <form id="comment-form">
-        <input type="hidden" name="game-id" value="{{id}}">
-        <label for="username">Your Name: </label><br>
-        <input type="text" placeholder="Enter your username" required>
-       <ul>
-        <li>
-        <label for="comment">Your Comment: </label><br>
-        <textarea id="msg" type="text" placeholder="Enter up to 300 characters" name="comment-string" maxlength="300" required></textarea>
-        <button id="save">SAY THAT TO MY FACE</button>
-        </li>
-        </ul>
-      </form>
+      <div class="newCmnt">
+        <form id="comment-form">
+          <input type="hidden" name="game-id" value="{{id}}">
+          <label for="username">Your Name: </label><br>
+          <input class="user" type="text" placeholder="Enter your username" required>
+          <label class="comnt"for="comment">Your Comment: </label><br>
+          <textarea type="text" placeholder="Enter up to 300 characters" name="comment-string" maxlength="300" required></textarea>
+          <a href="/games">
+              <img class="comment-submit" src="/imgs/green-x.png" alt="Green 'X' button">
+          </a>
+          
+        </form>
+      </div>
     </div>
   </div>
-</div>
+ 
+  {{!-- scripts for comment/delete btn functionality --}}
+  {{!-- Only logged in users can add comments or delete games --}}
+  {{#if logged_in}}
+  <script src="/js/add-comment.js"></script>
+  <script src="/js/delete.js"></script>
+  {{/if}}
 
-{{!-- scripts for comment/delete btn functionality --}}
-{{!-- Only logged in users can add comments or delete games --}}
-{{#if logged_in}}
-<script src="/public/js/add-comment.js"></script>
-<script src="js/delete.js"></script>
-{{/if}}
 
-
-{{!-- add posted/commented user --}}
+  {{!-- add posted/commented user --}}

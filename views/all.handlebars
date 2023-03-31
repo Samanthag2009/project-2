@@ -1,32 +1,37 @@
-<div class="all-games-container">
+<div >
     <div class="all-header">
-        <img class="not-a-switch" src="/imgs/not-a-switch.png" alt="Handheld game console">
-        <h1>All Games: </h1>
+        <div id="title">
+            <h1>All Games: </h1>
+            <img class="arrows" src="/imgs/arrows.png" alt="Game controller arrows">
+        </div>
+        
         <h3>Check out what all the other users are playing!</h3>
-        <img class="arrows" src="/imgs/arrows.png" alt="Game controller arrows">
+        
     </div>
-    {{!-- Iterate over all saved games and render each game as follows --}}
-    {{#each games as |game|}}
-        <div class="game-card">
-            <div class="card-header">
-                {{game_name}}
-                {{!-- Hardcoded to return /1001 just bc we don't have time to figure out how to  --}}
-                <a href="/1001"> 
-                    <img class="view-btn"  src="/imgs/green-x.png" alt="Green 'X' button"> 
-                </a>
-            
-            </div>
-            <div class="card-body">
-                {{!-- Img uploaded to render here --}}
-                <div>
-                {{img_url}} 
-                </div>
-                <p>
-                    Player Rating: {{rating}}/5 <img id="heart-rating" src="/imgs/heart.png" alt="Retro game health heart">
-                </p>
-            </div>
-        </div> 
-    {{/each}}
+    <div class="all-games-container">
+        {{!-- Iterate over all saved games and render each game as follows --}}
+        {{#each games as |game|}}
+            <div class="game-card">
+                    <h3>
+                       {{game_name}} 
+                    </h3>
+                    
+                    {{!-- Hardcoded to return /1001 just bc we don't have time to figure out how to  --}}
+                    <a href="/1001"> 
+                        <img class="view-btn"  src="/imgs/green-x.png" alt="Green 'X' button"> 
+                    </a>
+                
+                    {{!-- Img uploaded to render here --}}
+                    <div>
+                    <img class="game-cover" src="{{image_url}}" alt="{{game_name}} Cover Img">
+                    </div>
+                    
+                    <p class="rating">
+                       Player Rating: {{rating}}/5  <img id="heart-rating" src="/imgs/heart.png" alt="Retro game health heart"> 
+                    </p>                
+            </div> 
+        {{/each}}
+    </div>
 <img class="joy-stick" src="/imgs/joy-stick.png" alt="Old school joy stick">
 
 <script src="/js/all-games.js"></script>
