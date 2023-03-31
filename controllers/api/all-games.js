@@ -5,13 +5,11 @@ const { Comment, Game, User } = require("../../models");
 //require user authentication to see this page
 const hasAuth = require('../../utils/auth');
 
-router.get("/games", hasAuth, async (req, res) => {
-  res.render("all", { layout: "main" });
-});
 
-// Return all games stored
+
+// Return all games stored in db (includes the name, cover img, & rating)
 router.get("/games", hasAuth, (req, res) => {
-  Game.findAll({
+  Game.findAll({ // retrieve desired attributes
     attributes: ["game_name", "cover_img", "rating"],
     order: [["created_at", "DESC"]],
     include: [
@@ -20,13 +18,14 @@ router.get("/games", hasAuth, (req, res) => {
         attributes: ["username"],
       },
     ],
-  })
+  })                  // sends data to front end
     .then((dbData) => res.json(dbData))
     .catch((err) => {
       console.log(err);
-      res.status(err).json(err);
+      res.status(500).json(err);
     });
 });
+
 
 // find one specific game
 router.get("/:id", hasAuth, (req, res) => {
@@ -53,7 +52,7 @@ router.get("/:id", hasAuth, (req, res) => {
         attributes: [
           "comment_id",
           "comment_text",
-          "user_id",
+          "comment_username",
           "game_id",
           "created_at",
         ],
@@ -71,49 +70,28 @@ router.get("/:id", hasAuth, (req, res) => {
     });
 });
 
-// ADD-GAME to db
-router.post('/add-game', hasAuth, (req, res) => {
-  // each game added will have the following:
-  Game.create({
-    game_name: req.body.title,
-    image_url: req.body.image_url,
-    genre: req.body.genre,
-    game_description: req.body.game_description,
-    rating: req.body.rating,
-    play_status: req.body.play_status,
-    user_id: req.body.user_id
-  })
-  .then(dbData => res.json(dbData)) // data will be rendered into the handlebars template
-  .catch(err => {
-    console.log(err);
-    res.status(err).json(err);
-  }); 
+
+// // ADD-GAME to db
+// router.post('/add-game', hasAuth, (req, res) => {
+//   // each game added will have the following:
+//   Game.create({
+//     game_name: req.body.title,
+//     image_url: req.body.image_url,
+//     genre: req.body.genre,
+//     game_description: req.body.game_description,
+//     rating: req.body.rating,
+//     play_status: req.body.play_status,
+//     user_id: req.body.user_id
+//   })
+//   .then(dbData => res.json(dbData)) // data will be rendered into the handlebars template
+//   .catch(err => {
+//     console.log(err);
+//     res.status(err).json(err);
+//   }); 
   
-});
+// });
 
 
-// Comments for game by id
-router.get('/:id', hasAuth, (req, res) => {
-  Comment.findAll({
-    where: {
-      game_id: req.params.game_id
-    },
-    attributes: [
-      "comment_text",
-      "game_id",
-      "user_id"
-    ],
-    include: {
-      model: User,
-      attributes: ["username"],
-    },
-  })
-  .then(dbData => res.json(dbData))
-  .catch(err => {
-    console.log(err);
-    res.status(err).json(err);
-  }); 
-})
 
 
 // export modules

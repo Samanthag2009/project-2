@@ -1,30 +1,41 @@
 const commentForm = document.getElementById('comment-form');
-const commentButton = document.getElementById('comment-btn');
+const commentButton = document.getElementById('new-comment-btn');
 
-commentButton.addEventListener('click', function(event) {
+  async function newCommentForm (event) {
     event.preventDefault();
 
-   const gameId = document.querySelector('input[name="game-id"]').value;
-   const comment = document.querySelector('textarea[name="comment-string"]').value;
+    //game id is /# at very end of url
+   const game_id = window.location.toString().split('/')[
+    window.location.toString().split('/').length - 1
+   ];
+   const comment_username = document.querySelector('input[name="user"]').value.trim();
+   const comment_text = document.querySelector('textarea[name="comment-string"]').value.trim();
+   
+   console.log(comment_username, comment_text)
 
-   const newComment = {
-    game: gameId,
-    comment: comment
-   };
+   const newComment = await fetch('/api/post/:id', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        game_id,
+        comment_username,
+        comment_text
+      }),
+    })  
 
+    // If post is status 200, reload page to show new comment
+    if (newComment.ok) {
+      document.location.reload();
+      console.log(newComment)
+    } else {
+      alert(newComment.statusText)
+    }
+}
 
-   fetch('api/game-comments', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(newComment),
-  })
-    .then((res) => res.json())
-})
-.catch((error) => {
-  console.error('Error:', error);
-});
+commentButton.addEventListener('click', newCommentForm) 
+
 
 
 

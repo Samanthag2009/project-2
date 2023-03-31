@@ -4,6 +4,9 @@ const { User, Game, Comment } = require('../../models');
 
 const hasAuth = require('../../utils/auth')
 
+// COMMENTED OUT FUNCTIONALITY THAT WILL BE IMPLEMENTED IN FUTURE DEVELOPMENT
+
+// create new user
 router.post('/', async (req, res) => {
   User.create({
     username: req.body.username,
@@ -19,20 +22,21 @@ router.post('/', async (req, res) => {
   })
 });
 
+
 //post request getting one user from a stored email
 router.post('/login', async (req, res) => {
   try {
-    const userData = await User.findOne({ where: { username: req.body.username } });
+    const userName = await User.findOne({ where: { username: req.body.username } });
 
-    if (!userData) {
+    if (!userName) {
       res
-        .status(400)
+        .status(404)
         .json({ message: 'Login unsuccessful, incorrect username or password.' });
       return;
     }
 
     //comparing password to the db to ensure it is correct
-    const validPassword = await userData.checkPassword(req.body.password);
+    const validPassword = await userName.checkPassword(req.body.password);
 
     if (!validPassword) {
       res
@@ -42,10 +46,10 @@ router.post('/login', async (req, res) => {
     }
     //creating session variables based on the user
     req.session.save(() => {
-      req.session.user_id = userData.id;
+      req.session.user_id = userName.id;
       req.session.logged_in = true;
       
-      res.json({ user: userData, message: 'Login successful!' });
+      res.json({ user: userName, message: 'Login successful!' });
     });
 
   } catch (err) {
@@ -54,32 +58,8 @@ router.post('/login', async (req, res) => {
 });
 
 
-// get game by id get by user id
-router.get('/:id', hasAuth, (req, res) =>{
-  //Find specific game data for requested game by id
-  console.log(req.params.id)
-  User.findOne({
-      where: {
-        id: req.params.id
-      },
-      attributes: [
-          'username',
-          'password',
-          'created_at'
-      ]
-  })
-  .then(dbData => {
-    // Then populate the single-game template with what was found ^
-    const user = dbData.get({ plain: true});
-    console.log(user)
-    res.render('user-profile', user) 
-  })
-  .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
 
-});
+
 
 //end the session upon user logout
 router.post('/logout', (req, res) => {

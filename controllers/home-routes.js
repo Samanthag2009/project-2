@@ -4,25 +4,38 @@ const { Game, User, Comment } = require('../models');
 
 const hasAuth = require('../utils/auth')
 
-//These pages don't have handlebars, so you can just send the page to render
+// COMMENTED OUT FUNCTIONALITY THAT WILL BE IMPLEMENTED IN FUTURE DEVELOPMENT
 
-// render login / signup page
+// render login / signup page template
 router.get('/login', (req, res) => {
 
+  // If user is logged in redirect them to the games page
+  if (req.session.logged_in) {
+    res.redirect("/games");
+    return;
+  }
+
+  //else, render the login page
   res.render('login');
 });
 
-// render new user page
+// render new user page template
 router.get('/new-player', (req, res) => {
+
+  // if user is logged in (ie, already have an account) redirect to games page
+  if (req.session.logged_in) {
+    res.redirect("/games");
+    return;
+  }
 
   res.render('new-user');
 });
 
-router.get('/add-game', (req,res) => {
-  res.render('add-game');
-})
+// router.get('/add-game', (req,res) => {
+//   res.render('add-game');
+// })
 
-//render the homepage 
+//render the homepage template
 router.get('/', async (req, res) => {
     
     res.render('homepage');
@@ -33,7 +46,7 @@ router.get('')
 
 // ALL.HANDLEBARS
 // Return all games stored (must be logged in to access)
-router.get('/games', (req, res) =>{
+router.get('/games', hasAuth, (req, res) => {
   //Find what's needed to populate the handlebars
   Game.findAll({
       attributes: [
@@ -53,7 +66,7 @@ router.get('/games', (req, res) =>{
     //Render the handlebars template 'all' w what was found ^
     const games = dbData.map(game => game.get({ plain: true}));
     res.render('all', {
-      games
+      games // must be written as object
     })
   })
   .catch(err => {
@@ -91,7 +104,7 @@ router.get('/:id', hasAuth, (req, res) =>{
               attributes: [
                 'comment_id',
                 'comment_text',
-                'user_id',
+                'comment_username',
                 'game_id',
                 'created_at'
               ],
