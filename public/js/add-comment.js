@@ -35,19 +35,3 @@ const commentButton = document.getElementById('new-comment-btn');
 }
 
 commentButton.addEventListener('click', newCommentForm) 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

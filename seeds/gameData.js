@@ -112,6 +112,115 @@ const gameData = [
         rating: 3,
         play_status: 'Finished',
         user_id: 10
+    },
+    {
+        id: 1012,
+        game_name: 'Super Smash Bros. Ultimate',
+        image_url: 'https://thumbs2.imgbox.com/47/9f/T7WkGQlo_t.png', 
+        genre: 'Multiplayer',
+        game_description: 'Super Smash Bros. Ultimate is a platform fighter for up to eight players in which characters from Nintendo games and other third-party franchises must try to knock each other out of an arena.',
+        rating: 5,
+        play_status: 'Currently Playing',
+        user_id: 1
+    },
+    {
+        id: 1013,
+        game_name: 'Mass Effect',
+        image_url: 'https://thumbs2.imgbox.com/56/5e/hyJiYqx3_t.png', 
+        genre: 'RPG',
+        game_description: 'Mass Effect is a military science fiction media franchise. The franchise depicts a distant future where humanity and several alien civilizations have colonized the galaxy using technology left behind by advanced precursor civilizations.',
+        rating: 5,
+        play_status: 'Finished',
+        user_id: 9
+    },
+    {
+        id: 1014,
+        game_name: 'Castlevania',
+        image_url: 'https://thumbs2.imgbox.com/ed/64/IIaiyVgY_t.png', 
+        genre: 'RPG',
+        game_description: "Castlevania, released for the NES in 1986 is a platform game in which the player takes the role of Simon Belmont, a descendant of the Belmont clan, a family of vampire hunters. He travels to Dracula's castle, Castlevania, and fights his way through the castle annihilating Dracula himself and the castle.",
+        rating: 3,
+        play_status: 'Currently Playing',
+        user_id: 7
+    },
+    {
+        id: 1015,
+        game_name: 'Doki Doki Literature Club!',
+        image_url: 'https://thumbs2.imgbox.com/69/6a/fFNGeE75_t.png', 
+        genre: 'Horror',
+        game_description:'Doki Doki Literature Club! is a visual novel. As such, its gameplay has a low level of interactivity and consists of scenes with static two-dimensional images of characters in a first-person perspective, accompanied by occasional choices the player is forced to make in order to advance the plot.',
+        rating: 5,
+        play_status: 'Finished',
+        user_id: 4
+    },
+    {
+        id: 1016,
+        game_name: 'Across the Obelisk',
+        image_url: 'https://thumbs2.imgbox.com/34/c7/2S4qGEqy_t.png', 
+        genre: 'Rogue-lite',
+        game_description: 'Across the Obelisk is a dynamic deckbuilding rogue-lite RPG from Dreamsite Games that challenges players to create a party from a diverse set of characters, engage in tactical card-based combat, and find a unique path across a world that changes in reaction to their decisions.',
+        rating: null,
+        play_status: 'Wishlist',
+        user_id: 2
+    },
+    {
+        id: 1017,
+        game_name: 'Dark  Souls',
+        image_url: 'https://thumbs2.imgbox.com/42/3e/LcsIHTQW_t.png', 
+        genre: 'RPG',
+        game_description: 'A dark fantasy universe, tense dungeon crawling, fearsome enemy encounters and unique online interactions.',
+        rating: null,
+        play_status: 'Currently Playing',
+        user_id: 13
+    },
+    {
+        id: 1018,
+        game_name: "Legend of Zelda: Majora's Mask",
+        image_url: 'https://thumbs2.imgbox.com/81/54/ccVb12MZ_t.png', 
+        genre: 'RPG',
+        game_description: "Majora's Mask is a powerful and evil mask. Skull Kid steals it from the Happy Mask Salesman, and its power overcomes him. Once used in hexing rituals by an ancient tribe, the mask contains a seemingly sentient being that seeks to bring the Moon down on Termina in the events of the game Majora's Mask.",
+        rating: 3,
+        play_status: 'Finished',
+        user_id: 2
+    },
+    {
+        id: 1019,
+        game_name: 'Resident Evil: 4',
+        image_url: 'https://thumbs2.imgbox.com/d4/29/HXzotR1Y_t.png', 
+        genre: 'RPG',
+        game_description: "In resident evil 4, special agent Leon S. Kennedy is sent on a mission to rescue the U.S. President's daughter who has been kidnapped. Finding his way to a rural village in Europe, he faces new threats that are a departure from the traditional lumbering zombie enemies of the earlier instalments in the series.",
+        rating: 5,
+        play_status: 'Currently Playing',
+        user_id: 5
+    },
+    {
+        id: 1020,
+        game_name: 'Batman: Arkham City',
+        image_url: 'https://thumbs2.imgbox.com/96/e9/raNdz6PI_t.png', 
+        genre: 'Action',
+        game_description: 'Batman: Arkham City is an open-world action-adventure game that incorporates tactics from stealth games. It is presented from the third-person perspective, showing the playable character on screen and allowing the camera to be freely rotated around it.',
+        rating: 4,
+        play_status: 'Finished',
+        user_id: 5
+    },
+    {
+        id: 1021,
+        game_name: 'Barotrauma',
+        image_url: 'https://thumbs2.imgbox.com/ef/d3/2Sy3SfQB_t.png', 
+        genre: 'Horror',
+        game_description: "Barotrauma is a 2D co-op survival horror submarine simulator, inspired by games like FTL: Faster Than Light, Rimworld, Dwarf Fortress and Space Station 13. It's a Sci-Fi game that combines ragdoll physics and alien sea monsters with teamwork and existential fear.",
+        rating: null,
+        play_status: 'Wishlist',
+        user_id: 8
+    },{
+        id: 1022,
+        game_name: 'Corpse Party',
+        image_url: 'https://thumbs2.imgbox.com/4b/9f/U1N5TB08_t.png', 
+        genre: 'Horror',
+        game_description: "After performing a charm that would supposedly unite them as friends, a group of students are teleported to the mysterious Heavenly Host Elementary School where they are visited by the spirits of the school's murdered students.",
+        rating: 5,
+        play_status: 'Finished',
+        user_id: 1
     }
 ];
 

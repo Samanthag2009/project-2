@@ -51,6 +51,10 @@ Game.init(
             type: DataTypes.STRING,
             allowNull: false
         },
+        likes: { 
+            type: DataTypes.INTEGER, 
+            allowNull: true,
+        },
         user_id: { // Foreign Key
             type: DataTypes.INTEGER, 
             allowNull: false,

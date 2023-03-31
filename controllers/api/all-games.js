@@ -3,9 +3,7 @@ const router = require("express").Router();
 const express = require("express");
 const { Comment, Game, User } = require("../../models");
 //require user authentication to see this page
-const hasAuth = require('../../utils/auth');
-
-
+const reqAuth = require("../../utils/auth");
 
 // Return all games stored in db (includes the name, cover img, & rating)
 router.get("/games", hasAuth, (req, res) => {
@@ -26,9 +24,8 @@ router.get("/games", hasAuth, (req, res) => {
     });
 });
 
-
 // find one specific game
-router.get("/:id", hasAuth, (req, res) => {
+router.get("/:id", (req, res) => {
   console.log("working");
   Game.findOne({
     where: {
@@ -66,7 +63,7 @@ router.get("/:id", hasAuth, (req, res) => {
     .then((dbData) => res.json(dbData))
     .catch((err) => {
       console.log(err);
-      res.status(err).json(err);
+      res.status(500).json(err);
     });
 });
 
@@ -90,7 +87,6 @@ router.get("/:id", hasAuth, (req, res) => {
 //   }); 
   
 // });
-
 
 
 
