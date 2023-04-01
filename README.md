@@ -19,11 +19,7 @@ Game Connoisuer is an app made to act as a game library with the following featu
 
 ## Link to Deployed App
 
-👾 (heroku link go here)
-
-## Installation
-
-Access the application at it's deployed link on Heroku.
+👾 https://game-connoisseur.herokuapp.com/
 
 ## Usage
 
