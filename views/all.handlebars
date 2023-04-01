@@ -1,0 +1,49 @@
+    <div class="all-header">
+        <div id="title">
+            <h1>All Games: </h1>
+            <img class="arrows" src="/imgs/arrows.png" alt="Game controller arrows">
+        </div>
+        
+        <h3>Check out what all the other users are playing!</h3>
+        <div>
+        <h4>
+            To see more game details and comments, enter the 'Game ID' Here!
+        </h4>
+        <form class="look-up-form">
+            <input class="look-input"name="gameId" type="text" placeholder="Game ID" required>
+            <input id="green-x" type="image" value="Submit" src="/imgs/green-x.png" alt="Submit">
+        </form>
+    </div>
+        
+    </div>
+    <div class="all-games-container">
+        {{!-- Iterate over all saved games and render each game as follows --}}
+        {{#each games as |game|}}
+            <div class="game-card">
+                    <div class="game-title">
+                        <h3>
+                            {{game_name}} 
+                        </h3>
+                        <p class="id">
+                            Game ID: {{id}}
+                        </p>
+                    </div>
+                
+                    {{!-- Img uploaded to render here --}}
+                    <div>
+                    <img class="game-cover" src="{{image_url}}" alt="{{game_name}} Cover Img">
+                    </div>
+                    
+                    <p class="rating">
+                       Player Rating: {{rating}}/5 <img id="heart-rating" src="/imgs/heart.png" alt="Retro game health heart"> 
+                    </p>
+                    <p class="like-button">
+                        Like Me?
+                        <button class="like-heart" >♡</button><div id="get-likes">{{likes}}</div>
+                    </p>                
+            </div> 
+        {{/each}}
+    </div>
+<script src="/js/view-game.js"></script>
+<script src="/js/all-games.js"></script>
+

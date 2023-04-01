@@ -1,0 +1,473 @@
+:root {
+    --light: #F0FCF8;
+    --bright: #ffd33b;
+    --danger: #ff2173;
+    --go: #2bdb9b;
+    --calm: #00bfc3;
+    --dark: #1d133f;
+}
+
+html {
+    cursor: url("../imgs/cursor.png"), auto !important;
+}
+
+a:hover, a:focus, a::after {
+    cursor: url("../imgs/cursor.png"), auto !important;
+}
+
+
+
+body {
+   font-family: 'Montserrat', sans-serif;
+   color: var(--dark); 
+}
+
+
+.view-btn, 
+#heart-rating,
+.arrows {
+    width: 30px;
+} 
+
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navBar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navBar li {
+    margin-bottom: 1rem;
+    list-style: none;
+}
+
+a#games {
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--danger)
+}
+
+a#home {
+    font-weight: 700;
+    text-decoration: none;   
+    color: var(--bright);
+}
+
+a#games:hover, a#home:hover {
+    color: var(--dark)
+}
+
+#logo-icon {
+    align-self: flex-start;
+    width: 7rem;
+}
+
+
+.ghosties {
+    display: flex;
+    justify-content: space-between;
+    height: 3rem;
+    margin-top: 4rem;
+}
+
+.ghost1, .ghost2 {
+    height: 3rem;
+    position: absolute;
+    -webkit-animation: linear infinite;
+    -webkit-animation-name: run;
+    -webkit-animation-duration: 8s;
+  }
+  @-webkit-keyframes run {
+    0% {
+      left: 0;
+    }
+    50% {
+      left: 100%;
+    }
+    100% {
+      left: 0;    
+    }
+}
+
+.mouse {
+    position: absolute;
+    top: 100%;
+    right: 82%;
+    transform: rotate(30deg);
+    width: 4rem;
+}
+
+.mouse {
+    animation: tilt-shaking 0.6s infinite;
+  }
+  @keyframes tilt-shaking {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(8deg); }
+    50% { transform: rotate(0eg); }
+    75% { transform: rotate(-8deg); }
+    100% { transform: rotate(0deg); }
+  }
+
+.ghost2 {
+    top: 30%;
+}
+
+.ghost1 {
+    bottom: -100%;
+    margin-bottom: 15px
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#about-us {
+    width: 70%;
+    font-weight: 600;
+    text-align: center;
+    font-size: 23px;
+}
+
+#new-player, #submit {
+    width: 15rem;
+    margin-top: 3.5rem;
+}
+
+#start-press {
+    width: 15rem;
+    margin-top: 2rem;
+}
+.center-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#ready-play {
+    font-size: 30px;
+    font-family: 'VT323', monospace;
+    font-weight: 600;
+    margin-top: 5rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+.potion {
+    height: 3rem;
+    margin-left: 10px;
+    margin-right: 10px;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    transform-origin: bottom;
+    animation-name: bounce-3;
+        animation-timing-function: ease;
+}
+
+@keyframes bounce-3 {
+    0%   { transform: translateY(0); }
+    30%  { transform: translateY(-100px); }
+    50%  { transform: translateY(0); }
+    100% { transform: translateY(0); }
+}
+
+#s-u {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 6rem;
+}
+
+.console {
+    position: absolute;
+    width: 7rem;
+    top: 120%;
+    left: 82%;
+    animation: tilt-sh 0.4s infinite;
+}
+@keyframes tilt-sh {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(3deg); }
+    50% { transform: rotate(0eg); }
+    75% { transform: rotate(-3deg); }
+    100% { transform: rotate(0deg); }
+  }
+
+.login-container {
+    font-size: 25px;
+}
+
+.login-form {
+    margin-top: 3rem;
+}
+
+#submit {
+    height: 6rem;
+}
+
+
+.all-header, .look-up-form {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.arrows {
+    width: 3rem;
+    margin-left: 10px;
+}
+
+#title {
+    display: flex;
+    align-items: center;
+}
+
+
+
+.all-games-container { 
+    display: grid;
+    grid-template-columns: repeat(1, 300px);
+    row-gap: 1.5%;
+    justify-content: center;
+    margin-top: 5%;
+    font-family: 'VT323', monospace;   
+}
+
+.game-card {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--dark);
+    border-radius: 16px;
+    background-image: linear-gradient(var(--bright), var(--calm))
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+}
+
+#heart-rating {
+    margin-left: 10px;
+}
+
+.login-container, 
+.redirect, 
+.login-form, 
+#active-container, 
+.newCmnt, 
+#comment-form, 
+.game-title  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.look-input {
+    background-color: var(--light);
+    color: var(--dark);
+}
+
+.redirect {
+    margin-top: 40px;
+}
+
+/* size fetched movie img to the results column width */
+img.game-cover {
+    width: 299px;
+    border-top: 3px solid var(--dark);
+    border-bottom: 3px solid var(--dark);
+    border-left: 2px inset var(--dark);
+    border-right: 2px inset var(--dark);
+}
+/* text on result cards */
+.game-card p {
+    text-align: center;
+    font-size: 25px;
+    background-color: var(--pale);
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+p.id {
+    margin: 10px 0 10px 0;
+}
+
+.game-card h3 {
+    font-family: 'VT323', monospace;
+    font-size: 25px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+
+/* Single view card styling */
+.active-game-card  {
+    display: flex;
+    flex-direction: column;
+    border: 2.5px solid var(--dark);
+    border-radius: 16px;
+    width: 498px;
+    background-image: linear-gradient(var(--danger), var(--light))
+}
+
+#active-container {
+    margin-top: 6rem;
+}
+
+.active-card-header {
+    display: flex;
+    justify-content: space-around;
+    margin: 5px 0 8px 0;
+}
+
+.active-card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 30px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.description {
+    font-weight: 600;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.title {
+    font-family: 'VT323', monospace !important; 
+    font-size: 70px;
+    margin: 0;
+}
+
+#comment-btn, .delete-btn, #green-x  {
+    width: 3.5rem;
+    margin: 8px 8px 0 0;
+}
+
+
+.newCmnt {
+    margin: 15px;
+    text-align: center;
+}
+
+#comment-form, .comnt {
+    margin: 15px 0 15px 0;
+}
+
+.comment-submit {
+    width: 4.5rem;
+    margin-top: 10px;
+}
+
+textarea {
+    width: 350%;
+    border: 2px solid var(--go);
+    border-radius: 10px;
+}
+
+.user, .look-input {
+    width: 25%;
+    height: 20px;
+    border: 2px solid var(--calm);
+    border-radius: 5px;
+}
+
+
+/* MODAL STYLING */
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(29,19,63,0.4); /* --dark w/ opacity */
+}
+  
+/* Modal Content/Box */
+.modal-content {
+    background-color: var(--light);
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid var(--dark);
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.modal-content p {
+    text-align: center;
+}
+
+.yes-no {
+    display: flex;
+    justify-content: space-around;
+}
+  
+/* The Close/Accept Buttons */
+#no #yes {
+    width: 30px;
+}
+  
+/* When screen is larger than phone, results page has two columns, logo gets larger, and homepage has larger margins*/
+@media screen and (min-width: 782px) {
+    .all-games-container { 
+        grid-template-columns: repeat(2, 300px);
+        column-gap: 50px;
+        row-gap: 2%;
+    }
+
+    main {
+        margin-left: 7%;
+        margin-right: 7%;
+    }
+
+    /* Joystick unhides to take up space @ bottom of screen */
+    .joy-stick {
+        display: inline;
+        position: absolute;
+        left: 67%
+    }
+}    
+
+/* When screen is larger than phone, results page has two columns, logo gets larger, a and homepage has even larger margins*/
+@media screen and (min-width: 992px) {
+    .results-container { 
+        column-gap: 150px;
+        row-gap: 3%;
+    }
+
+
+    main {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+}    
+
+/* Like button styling - Sam*/
+
+.like-heart { 
+width: 71px;
+  height: 29px;
+  background: rgb(198, 59, 94, 1);
+  border-radius: 9px;
+
+}
+
+#get-likes {
+    display: none;
+}

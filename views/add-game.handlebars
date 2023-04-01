@@ -1,0 +1,51 @@
+{{!-- <div class="add-container">
+    <h2>Add New Game:</h2>
+    <form id="new-game-form">
+        {{!-- Name --}}
+        <label for="game-name">Game Name:</label><br>
+        <input type="text" id="game-title" name="game-name"><br>
+        <label for="game-cover">Game Cover Link: If you'd like to upload an image of your game, enter a URL from your prefered 'Image Hosting Site' such as <a target="_blank" href="https://www.google.com/photos/about/">Google Photos</a>, <a target="_blank" href="https://imgbox.com/">imgbox</a>, or <a target="_blank" href="https://imgbb.com/"></a>img.bb</label><br>
+        <input type="url" id="cover-link" placeholder="URLs only "><br>
+    
+        {{!-- Genre --}}
+        <label for="game-genre">Game Genre:</label><br>
+          <select name="genre" id="genre">
+            <option value="" disabled="" selected=""></option>
+            <option value="Action/Adventure">Action/Adventure</option>
+            <option value="Real-Time Strategy">Real-Time Strategy</option>
+            <option value="Role-Playing">Role-Playing</option>
+            <option value="Shooters">Shooters</option>
+            <option value="Sandbox">Sandbox</option>
+            <option value="Survival">Survival</option>
+            <option value="Horror">Horror</option>
+            <option value="Other">Other</option>
+          </select>
+        {{!-- Description --}}
+        <label for="game-descript">Game Description:</label><br>
+        <textarea type="text" id="description" name="game-descript" maxlength="300" placeholder="Optional"></textarea>
+        {{!-- Rating --}}
+        <label for="game-rating">Your Rating Out of 5:</label><br>
+        <input type="number" id="rating" min="0" max="5" placeholder="0 being lame, and 5 being rad"> 
+        {{!-- Play Status --}}
+        <label for="game-status">Play Status:</label><br>
+          <select name="genre" id="play-status">
+            <option value="" disabled="" selected=""></option>
+            <option value="Currently Playing">Currently Playing</option>
+            <option value="Completed">Completed</option>
+            <option value="Want to Play">Want to Play</option>
+          </select>
+        {{!-- Uses img as submit btn (size hard coded here, but should be set with css for dif screen sizes) --}}
+        <input type="image" value="Submit" src="/imgs/level-up.png" alt="Submit" width="48" height="48">
+    </form>
+
+    <div class="redirect">
+        <h4>Not a registerd player yet?</h4>
+        <img class="new-player-btn" src="/imgs/new-player.png" href="/new-user">
+    </div>
+
+</div>
+
+{{!-- Only logged in users can add a game --}}
+{{!-- {{#if logged_in}} --}}
+{{!-- <script src="/js/add-game.js"></script>
+{{/if}} --}} 
