@@ -187,12 +187,8 @@ const gameData = [
         game_description: 'A dark fantasy universe, tense dungeon crawling, fearsome enemy encounters and unique online interactions.',
         rating: null,
         play_status: 'Currently Playing',
-<<<<<<< HEAD
-        user_id: 11
-=======
         user_id: 10,
         likes: 0
->>>>>>> 27361fba6e5e4c4e33859d43aa27cb971f3808c1
     },
     {
         id: 1018,
@@ -237,7 +233,8 @@ const gameData = [
         play_status: 'Wishlist',
         user_id: 8,
         likes: 0
-    },{
+    },
+    {
         id: 1022,
         game_name: 'Corpse Party',
         image_url: 'https://thumbs2.imgbox.com/4b/9f/U1N5TB08_t.png', 
@@ -245,12 +242,8 @@ const gameData = [
         game_description: "After performing a charm that would supposedly unite them as friends, a group of students are teleported to the mysterious Heavenly Host Elementary School where they are visited by the spirits of the school's murdered students.",
         rating: 5,
         play_status: 'Finished',
-<<<<<<< HEAD
-        user_id: 3
-=======
         user_id: 1,
         likes: 0
->>>>>>> 27361fba6e5e4c4e33859d43aa27cb971f3808c1
     }
 ];
 

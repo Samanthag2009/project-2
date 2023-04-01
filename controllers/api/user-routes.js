@@ -1,17 +1,23 @@
 const router = require('express').Router();
 
 const { User } = require('../../models');
+const { Op } = require("sequelize");
+
 
 const hasAuth = require('../../utils/auth')
 
 // in / => api/ => user/ => new-player
 // Add new user to database from new-user fetch/POST
 router.post('/', (req, res) => {
-  User.create({
+ 
+  User.max('id', { where: { id: { [Op.gt]: 1 } } }).then(newValue => {
+    let id = newValue + 1;
+
+    User.create({
       //from fetch js post
 
     // Create request is not setting the ID automatically, even thought it's set to autoIncrement, keeps returning NULL
-
+      id,
       username: req.body.username,
       password: req.body.password
   })
@@ -25,6 +31,7 @@ router.post('/', (req, res) => {
           req.session.logged_in = true;
           //save new user
           res.json(newUserData)
+        return;
       })
   })
   .catch(err => {
@@ -34,6 +41,9 @@ router.post('/', (req, res) => {
   })
 })
 
+  })
+
+  
 
 
 //post request getting one user from a stored email
