@@ -9,6 +9,7 @@ const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const routes = require("./controllers");
 const sequelize = require("./config/connection");
 const helpers = require("./utils/helpers");
+const bodyParser = require('body-parser');
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -35,6 +36,14 @@ const sess = {
 
 app.use(session(sess));
 
+// create application/json parser
+app.use(bodyParser.json())
+
+// create application/x-www-form-urlencoded parser
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// parse an HTML body into a string
+app.use(bodyParser.text({ type: 'text/html' }))
 
 const hbs = exphbs.create({ helpers });
 

@@ -32,6 +32,7 @@ body {
 
 header {
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
 }
@@ -40,6 +41,7 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
 }
 
 .navBar li {
@@ -50,13 +52,15 @@ header {
 a#games {
     font-weight: 700;
     text-decoration: none;
-    color: var(--danger)
+    color: var(--danger);
+    font-family: 'VT323', monospace;
 }
 
 a#home {
     font-weight: 700;
     text-decoration: none;   
     color: var(--bright);
+    font-family: 'VT323', monospace;
 }
 
 a#games:hover, a#home:hover {
@@ -66,6 +70,7 @@ a#games:hover, a#home:hover {
 #logo-icon {
     align-self: flex-start;
     width: 7rem;
+    margin: 20px 0 0 20px;
 }
 
 
@@ -114,14 +119,7 @@ a#games:hover, a#home:hover {
     100% { transform: rotate(0deg); }
   }
 
-.ghost2 {
-    top: 30%;
-}
 
-.ghost1 {
-    bottom: -100%;
-    margin-bottom: 15px
-}
 
 .main-container {
     display: flex;
@@ -142,7 +140,7 @@ a#games:hover, a#home:hover {
     margin-top: 3.5rem;
 }
 
-#start-press {
+#start-press, .newplayer {
     width: 15rem;
     margin-top: 2rem;
 }
@@ -201,15 +199,15 @@ a#games:hover, a#home:hover {
     100% { transform: rotate(0deg); }
   }
 
-.login-container {
+.login-container, .signup-form {
     font-size: 25px;
 }
 
-.login-form {
+.login-form, .signup-form {
     margin-top: 3rem;
 }
 
-#submit {
+#submit, .newplayer {
     height: 6rem;
 }
 
@@ -226,7 +224,7 @@ a#games:hover, a#home:hover {
     margin-left: 10px;
 }
 
-#title {
+#title, .rating  {
     display: flex;
     align-items: center;
 }
@@ -253,10 +251,6 @@ a#games:hover, a#home:hover {
     background-image: linear-gradient(var(--bright), var(--calm))
 }
 
-.rating {
-    display: flex;
-    align-items: center;
-}
 
 #heart-rating {
     margin-left: 10px;
@@ -268,7 +262,8 @@ a#games:hover, a#home:hover {
 #active-container, 
 .newCmnt, 
 #comment-form, 
-.game-title  {
+.game-title,
+.signup-form  {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -300,7 +295,7 @@ img.game-cover {
     margin-right: 10px;
 }
 
-p.id {
+p.id, .terms {
     margin: 10px 0 10px 0;
 }
 
@@ -357,26 +352,34 @@ p.id {
     margin: 8px 8px 0 0;
 }
 
-
 .newCmnt {
     margin: 15px;
     text-align: center;
+}
+
+.cmntUser {
+    border: 2px solid var(--bright);
+    border-radius: 4px;
+    height: 20px;
 }
 
 #comment-form, .comnt {
     margin: 15px 0 15px 0;
 }
 
-.comment-submit {
-    width: 4.5rem;
+ #new-comment-btn  {
+    width: 11rem;
     margin-top: 10px;
 }
 
 textarea {
-    width: 350%;
+    width: 400px;
+    height: 150px;
     border: 2px solid var(--go);
     border-radius: 10px;
+    margin-bottom: 20px;
 }
+
 
 .user, .look-input {
     width: 25%;
@@ -384,6 +387,19 @@ textarea {
     border: 2px solid var(--calm);
     border-radius: 5px;
 }
+
+label.terms, label.psw  {
+    margin-top: 15px;
+    width: 80%;
+    text-align: center;
+}
+
+input.check {
+    width: 15px
+}
+
+
+
 
 
 /* MODAL STYLING */
@@ -425,6 +441,15 @@ textarea {
   
 /* When screen is larger than phone, results page has two columns, logo gets larger, and homepage has larger margins*/
 @media screen and (min-width: 782px) {
+
+    header {
+        flex-direction: row;
+    }
+
+    #logo-icon {
+        width: 9rem;
+    }
+
     .all-games-container { 
         grid-template-columns: repeat(2, 300px);
         column-gap: 50px;
@@ -442,6 +467,20 @@ textarea {
         position: absolute;
         left: 67%
     }
+
+    a#games, a#home {
+        font-size: 2.5rem;
+    }
+
+    #new-comment-btn  {
+        width: 13rem;
+    }
+    
+    textarea {
+        width: 500px;
+        height: 150px;
+    }
+
 }    
 
 /* When screen is larger than phone, results page has two columns, logo gets larger, a and homepage has even larger margins*/
@@ -451,6 +490,22 @@ textarea {
         row-gap: 3%;
     }
 
+    #logo-icon {
+        width: 11rem;
+    }
+
+    #logo-name {
+        width: 40rem;
+    }
+
+    #new-comment-btn  {
+        width: 14rem;
+    }
+    
+    textarea {
+        width: 650px;
+        height: 150px;
+    }
 
     main {
         margin-left: 10%;
