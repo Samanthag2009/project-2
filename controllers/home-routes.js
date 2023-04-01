@@ -19,21 +19,15 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-// render new user page template
-router.get('/new-player', (req, res) => {
 
-  // if user is logged in (ie, already have an account) redirect to games page
-  if (req.session.logged_in) {
+router.get('/new-player', (req, res) => {
+   // If user is logged in redirect them to the games page
+   if (req.session.logged_in) {
     res.redirect("/games");
     return;
   }
-
-  res.render('new-user');
-});
-
-// router.get('/add-game', (req,res) => {
-//   res.render('add-game');
-// })
+  res.render('new-user')
+})
 
 //render the homepage template
 router.get('/', async (req, res) => {

@@ -1,26 +1,39 @@
 const router = require('express').Router();
 
-const { User, Game, Comment } = require('../../models');
+const { User } = require('../../models');
 
 const hasAuth = require('../../utils/auth')
 
-// COMMENTED OUT FUNCTIONALITY THAT WILL BE IMPLEMENTED IN FUTURE DEVELOPMENT
-
-// create new user (they'll be direct to games page on submit)
-router.post('/games', async (req, res) => {
+// in / => api/ => user/ => new-player
+// Add new user to database from new-user fetch/POST
+router.post('/', (req, res) => {
   User.create({
-    username: req.body.username,
-    password: req.body.password
+      //from fetch js post
+
+    // Create request is not setting the ID automatically, even thought it's set to autoIncrement, keeps returning NULL
+
+      username: req.body.username,
+      password: req.body.password
   })
-  .then(newUser => {
-    req.session.save(() => {
-      res.session.id = newUser.id;
-      res.session.username = newUser.username,
-      req.session.logged_in = true
-    })
-    .catch(err => console.log(err))
+  .then(newUserData => {
+
+      req.session.save(() => {
+
+          // session tracks user_id for logged in status, set each to model reference
+          req.session.user_id = newUserData.id;
+          // Keep new user logged in
+          req.session.logged_in = true;
+          //save new user
+          res.json(newUserData)
+      })
   })
-});
+  .catch(err => {
+      console.log(err)
+      res.status(500).json(err)
+      return;
+  })
+})
+
 
 
 //post request getting one user from a stored email

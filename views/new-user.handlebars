@@ -1,23 +1,16 @@
 <div class="sign-up-container">
     <form class="signup-form">  
-        <label for="email">Email: </label><br>
-        <input type="text" placeholder="Enter Email" name="email" required>
-
         <label for="username">Username: </label><br>
-        <input id="sign-up-username" type="text" placeholder="Enter Username" name="username" required>
+        <input name="username"type="text" placeholder="Enter Username" name="username" required>
 
-        <label for="psw"><b>Password: </b></label><br>
-        <input id="sign-up-password'" type="password" placeholder="Enter Password" name="psw" required>
+        <label class="psw" for="psw">Password: </label><br>
+        <input name="password" type="password" placeholder="Enter Password" name="psw" required>
 
-        <label for="psw-repeat"><b>Repeat Password: </b></label><br>
-        <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+        <label class="terms" for="terms">By creating an account you agree to our community standards which operates on a common sense/common courtesy basis. </label><br>
+        <input class="check" type="checkbox" required>
 
-        <lable for="terms">By creating an account you agree to our community standards which operates on a common sense/common courtesy basis. </lable><br>
-        <input type="checkbox" required>
-
-        <input type="image" value="Submit" src="/imgs/new-player.png" alt="Submit" width="48" height="48">
+        <input class="newplayer"  type="image" value="Submit" src="/imgs/new-player.png" alt="Submit" width="48" height="48">
     </form>
-
 </div>
 
-<script src="/public/js/new-user-login.js"></script>
+<script src="/js/new-user-login.js"></script>
