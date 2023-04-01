@@ -3,7 +3,7 @@ const router = require("express").Router();
 const express = require("express");
 const { Comment, Game, User } = require("../../models");
 //require user authentication to see this page
-const reqAuth = require("../../utils/auth");
+const hasAuth = require("../../utils/auth");
 
 // Return all games stored in db (includes the name, cover img, & rating)
 router.get("/games", hasAuth, (req, res) => {
