@@ -233,7 +233,8 @@ const gameData = [
         play_status: 'Wishlist',
         user_id: 8,
         likes: 0
-    },{
+    },
+    {
         id: 1022,
         game_name: 'Corpse Party',
         image_url: 'https://thumbs2.imgbox.com/4b/9f/U1N5TB08_t.png', 
