@@ -47,7 +47,8 @@ router.get('/games', hasAuth, (req, res) => {
           'id',
           'game_name',
           'image_url',
-          'rating'
+          'rating',
+          'likes'
       ],
       order: [['created_at', 'DESC']],
       include: [
@@ -87,7 +88,8 @@ router.get('/:id', hasAuth, (req, res) =>{
           'genre',
           'game_description',
           'rating',
-          'play_status'
+          'play_status',
+          'likes'
       ],
       include: [
           {

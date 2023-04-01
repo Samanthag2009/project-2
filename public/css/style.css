@@ -512,3 +512,17 @@ input.check {
         margin-right: 10%;
     }
 }    
+
+/* Like button styling - Sam*/
+
+.like-heart { 
+width: 71px;
+  height: 29px;
+  background: rgb(198, 59, 94, 1);
+  border-radius: 9px;
+
+}
+
+#get-likes {
+    display: none;
+}

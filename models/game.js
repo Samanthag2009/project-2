@@ -51,10 +51,6 @@ Game.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        likes: { 
-            type: DataTypes.INTEGER, 
-            allowNull: true,
-        },
         user_id: { // Foreign Key
             type: DataTypes.INTEGER, 
             allowNull: false,
@@ -62,8 +58,12 @@ Game.init(
                 model: 'user',
                 key: 'id'
             }
+        },
+        likes: { 
+            type: DataTypes.INTEGER,
+            defaultValue: 0,
+            allowNull: false,
         }
-
     },
     {
      sequelize, 
