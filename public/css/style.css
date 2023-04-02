@@ -398,8 +398,13 @@ input.check {
     width: 15px
 }
 
+h2.title {
+    text-align: center;
+}
 
-
+.delete-btn, #comment-btn {
+    height: 3.5rem;
+}
 
 
 /* MODAL STYLING */

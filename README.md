@@ -19,7 +19,11 @@ Game Connoisuer is an app made to act as a game library with the following featu
 
 ## Link to Deployed App
 
-👾 (heroku link go here)
+👾 https://game-connoisseur.herokuapp.com/
+
+## Usage
+
+From the homepage, users can read a short blurb explaining why we created our app. From there, new users can click the 'Add New Player' button to create an account with us, or for those that already have an account, click the 'Press Start' button to be taken directly to the login page. From the login/new play pages, you will be redirected to the 'Browse Games' page, which contains all of the games currently added to our site. Here you can see the games displayed with a cover image, user rating/likes, and a unique 'Game ID'. Users can enter the unique game ID into the search bar at the top of the page to view more details and comments about that game. Game details include a description, game genre, play status of the user that posted the game, and the name of that user. Below the game card are any comments that have been left, as well as a section for users to add new comments. Simply add your username and whatever comment you'd like to leave and click the 'Level Up' button to post it. Just remember that you agreed to our community guidlines of common curtesy, so be respectful and open mindend when interacting with other users!
 
 ### Dependencies
 
@@ -38,12 +42,12 @@ Game Connoisuer is an app made to act as a game library with the following featu
 ## Authors
 
 Emma Boushka - Handlebars, seeds, routes, api, frontend and back end styling and functionality, authentication, CSS and styling
-
 Joshua Boren - RESTful api, controllers, .env, route configuration, authentication, 
 Christian Killelea - Front end views and design
 Colin Nicosia - Backend development, models, seed data, config, and image rendering functionality, presentation and readme
 Ashley Martinez - front end CSS and visual design.
-Samantha Gosselin - Backend development, config, schema, controllers, seeds, readme, authentication, 
+Samantha Gosselin - Backend development, config, schema, controllers, seeds, readme, authentication
+
 ## Version History
 
 * 0.1

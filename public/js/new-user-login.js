@@ -19,13 +19,13 @@ async function handleSignUpForm(event) {
         headers: { 'Content-Type': 'application/json' }
       });
         if (newUser.ok) {
-          
             // if 200, display alert and load all games page
             alert(`New Player ${username} added!`)
-            return newUser.json();
-            // document.location.replace('/games');
+            
+            document.location.replace('/games');
         } else {
             alert(newUser.statusText);
+            return;
         }
     }
 }

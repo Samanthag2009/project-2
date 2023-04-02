@@ -68,6 +68,7 @@ router.get('/games', hasAuth, (req, res) => {
   .catch(err => {
       console.log(err);
       res.status(500).json(err);
+      return;
     });
 
 });
@@ -117,6 +118,7 @@ router.get('/:id', hasAuth, (req, res) =>{
     //if game is not found, respond with error
     if (!dbData) {
       res.status(404).json({ message: 'No post found with this id, go back and try a different one!' });
+      return;
     }
 
     // Then populate the single-game template with what was found ^
@@ -127,6 +129,7 @@ router.get('/:id', hasAuth, (req, res) =>{
   .catch(err => {
       console.log(err);
       res.status(500).json(err);
+      return;
     });
 
 });
