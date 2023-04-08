@@ -11,8 +11,8 @@ Game.init(
         id: {
 
             type: DataTypes.INTEGER,
-            autoincrement: true,
-            defaultValue: 1000,
+            autoIncrement: true,
+            // defaultValue: 1000,
             allowNull: false,
             primaryKey: true
         },
